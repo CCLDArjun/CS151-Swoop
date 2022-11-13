@@ -23,7 +23,12 @@ function Home({ Component, pageProps, router }){
                     <div id="driverInfo">
                             <h1>Driver</h1>
                             <div id="driverDescription">
-                                <p>This is the list of things a driver can do.</p>
+                                <h3>A driver can:</h3>
+                                <ul>
+                                    <li>Host Carpool</li>
+                                    <li>View Carbon Emission Goals</li>
+                                    <li>See Trip Cost Estimation with real-time gas prices</li>
+                                </ul>
                             </div>
                     </div>
                     <div id="driverButton">   
@@ -34,8 +39,15 @@ function Home({ Component, pageProps, router }){
                     <div id="riderInfo">
                         <h1>Rider</h1>
                         <div id="riderDescription">
-                                <p>This is the list of things a rider can do.</p>
+                            <div id="riderHeading">
+                                <h3>A rider can:</h3>
                             </div>
+                                <ul>
+                                    <li>Request Carpool</li>
+                                    <li>View Carbon Emission Goals</li>
+                                    <li>See Trip Cost Estimation with real-time gas prices</li>
+                                </ul>
+                        </div>
                     </div>
                     <div id="riderButton">
                         <AwesomeButton cssModule={AwesomeButtonStyles} before={<GiPerson/>} type="primary" size="medium" onPress={goToRiderPage}>Rider</AwesomeButton>
