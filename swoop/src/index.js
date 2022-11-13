@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from "./HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Rider from './Rider';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -12,6 +14,7 @@ root.render(
       <Routes>
         <Route index element = {<App/>}/>
         <Route path='home' element = {<Home/>}/>
+        <Route path='/rider' element = {<Rider/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

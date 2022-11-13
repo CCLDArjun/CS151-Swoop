@@ -1,0 +1,56 @@
+.container {
+    height: 100%;
+    position: relative;
+  }
+#driverSection{
+  position: absolute;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  top: 25%;
+  left: 20%;
+  bottom: 50%;
+  border-radius: 25px;
+}
+#riderSection{
+  position: absolute;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  top: 25%;
+  left: 50%;
+  bottom: 50%;
+  border-radius: 25px;
+}
+#driverButton{
+  position: absolute;
+  bottom: 5%;
+  left: 190px;
+}
+#riderButton{
+  position: absolute;
+  bottom: 5%;
+  left: 190px;
+}
+#driverInfo{
+  position: absolute;
+  bottom: 400px;
+  left: 200px;
+}
+#riderInfo{
+  position: absolute;
+  bottom: 400px;
+  left: 200px;
+}
+#driverDescription{
+  position: absolute;
+  width: 300px;
+  padding-right: 70px;
+  right: -100px;
+}
+#riderDescription{
+  position: absolute;
+  width: 300px;
+  padding-right: 70px;
+  right: -100px;
+}
