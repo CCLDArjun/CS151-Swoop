@@ -43,4 +43,3 @@ function Rider(){
 
 export default Rider;
 
-

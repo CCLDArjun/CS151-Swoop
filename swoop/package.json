@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fseehawer/react-circular-slider": "^2.5.16",
+    "@primer/octicons-react": "^17.9.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -17,9 +18,11 @@
     "react-icons": "^4.6.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.2",
     "styled-components": "^5.3.6",
+    "swup": "^2.0.19",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -27,12 +30,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
