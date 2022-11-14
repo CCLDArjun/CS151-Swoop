@@ -8,11 +8,10 @@ import { useNavigate } from "react-router-dom";
 import MovingComponent from "react-moving-text";
 import { bounce } from 'react-animations';
 import Radium, {StyleRoot} from 'radium';
-import {AiFillCar} from "react-icons/ai";
 function Home({ Component, pageProps, router }) {
   const navigate = useNavigate();
   const goToRiderPage = () => {
-    let path = "/rider";
+    let path = "/rider/setCarbonGoals";
     navigate(path);
   };
   setTimeout(function () {
