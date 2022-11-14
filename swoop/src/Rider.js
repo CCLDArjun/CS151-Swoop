@@ -1,6 +1,7 @@
 import React from "react";
 import './Rider.css';
 import { RiderBox } from './components/riderBox';
+import { Navbar } from "./components/reactMenu/navbar";
 import CircularSlider from '@fseehawer/react-circular-slider';
 import { BoxContainer } from "./components/accountBox/common";
 import { TopContainer } from "./components/accountBox/common";
@@ -12,6 +13,7 @@ function Rider(){
     return(    
         
         <div id = "riderStyles">
+        <Navbar/>
         <RiderBox/>
             <BoxContainer>
                 <div id = "circleStyles">

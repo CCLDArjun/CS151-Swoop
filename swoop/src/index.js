@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from "./HomePage";
 import Rider from "./Rider";
+import RiderMission from './riderMission';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,8 @@ root.render(
       <Routes>
         <Route index element = {<App/>}/>
         <Route path='home' element = {<Home/>}/>
-        <Route path='/rider' element = {<Rider/>}/>
+        <Route path='rider/setCarbonGoals' element = {<Rider/>}/>
+        <Route path='rider/ourMission' element = {<RiderMission/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

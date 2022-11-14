@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 function Home({ Component, pageProps, router }){
     function routeChange() { 
-        let path = "/rider"; 
+        let path = "/rider/setCarbonGoals"; 
         navigate(path);
       }
     const navigate = useNavigate();
