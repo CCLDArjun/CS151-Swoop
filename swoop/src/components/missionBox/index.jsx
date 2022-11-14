@@ -60,6 +60,7 @@ const HeaderText = styled.h2`
   color: #fff;
   z-index: 10;
   margin: 0;
+  width: 320px;
 `;
 
 const SmallText = styled.h5`
@@ -101,7 +102,7 @@ const expandingTransition = {
 };
 export var userMap = new Map();
 
-export function RiderBox(props) {
+export function MissionBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState("signin");
   const playExpandingAnimation = () => {
@@ -139,9 +140,8 @@ export function RiderBox(props) {
           />
           {active === "signin" && (
             <HeaderContainer>
-              <HeaderText>Set Your</HeaderText>
-              <HeaderText>Goals</HeaderText>
-              <SmallText>How much carbon do you want to save?</SmallText>
+              <HeaderText>Our Mission</HeaderText>
+              <SmallText>Why Swoop?</SmallText>
             </HeaderContainer>
           )}
         </TopContainer>

@@ -17,3 +17,34 @@
     user-select: none;
     z-index: 1;
   }
+  #riderMission{
+    width: 380px;
+  }
+  #missionStyles{
+    font-size: 13.5px;
+    position:relative;
+    top: -250px;
+    left: 758px;
+    display: flex;
+    word-wrap: normal;
+    align-items: left;
+    text-align: left;
+    width: 19%;
+    height: 100%;
+    margin: 0;
+    margin-left: 4px;
+    color: #222;
+    font-weight: 500;
+  }
+
+  #missionTextStyle{
+    color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  z-index: 10;
+  margin: 0;
+  margin-top: 7px;
+  padding-left: 5px;
+  }
+
+  
