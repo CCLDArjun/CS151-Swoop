@@ -7,6 +7,7 @@ export const BoxContainer = styled.div`
   align-items: center;
   margin-top: 60px;
   background-color: white
+  
 `;
 
 export const FormContainer = styled.form`
