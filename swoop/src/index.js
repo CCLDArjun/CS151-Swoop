@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from "./HomePage";
+import Rider from "./Rider";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,6 +13,7 @@ root.render(
       <Routes>
         <Route index element = {<App/>}/>
         <Route path='home' element = {<Home/>}/>
+        <Route path='/rider' element = {<Rider/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
