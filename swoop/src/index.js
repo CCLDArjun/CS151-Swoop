@@ -7,7 +7,6 @@ import Home from "./HomePage";
 import Rider from "./Rider";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Rider from './Rider';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

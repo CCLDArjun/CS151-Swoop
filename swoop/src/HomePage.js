@@ -187,4 +187,3 @@ function Home({ Component, pageProps, router }) {
   );
 }
 export default Home;
->>>>>>> 7b2c1e5fc142ae665a567dd92aa24b8a14cfec33
