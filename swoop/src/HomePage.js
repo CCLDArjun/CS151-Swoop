@@ -6,8 +6,11 @@ import "react-awesome-button/dist/styles.css";
 import { GiSteeringWheel, GiPerson } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import MovingComponent from "react-moving-text";
-import { bounce } from 'react-animations';
-import Radium, {StyleRoot} from 'radium';
+import { bounce } from "react-animations";
+import Radium, { StyleRoot } from "radium";
+import { Navbar } from "./components/reactMenu/navbar";
+import { Helmet } from "react-helmet";
+
 function Home({ Component, pageProps, router }) {
   const navigate = useNavigate();
   const goToRiderPage = () => {
@@ -20,18 +23,28 @@ function Home({ Component, pageProps, router }) {
     document.getElementById("riderInfo").style.visibility = "visible";
     document.getElementById("riderButton").style.visibility = "visible";
     document.getElementById("welcomeHeader").style.visibility = "visible";
-  }, 1500);
+  }, 1000);
   const styles = {
     bounce: {
-      animation: 'x 10s',
-      animationName: Radium.keyframes(bounce, 'bounce')
-    }
-  }
+      animation: "x 3s",
+      animationName: Radium.keyframes(bounce, "bounce"),
+    },
+  };
   return (
     // <AnimatePresence>
     //     <Component key={router.route} {...pageProps} />
     // </AnimatePresence>\
     <div class="container">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+        <meta
+          name="description"
+          content="CS151 Final Project - Swoop application"
+        />
+      </Helmet>
+      <Navbar />
       <div id="welcomeHeader">
         <MovingComponent
           type="fadeInFromTop"
@@ -49,7 +62,7 @@ function Home({ Component, pageProps, router }) {
         <div id="driverInfo">
           <div id="driverTitle">
             <MovingComponent
-              type="fadeInFromTop"
+              type="fadeInFromLeft"
               duration="2000ms"
               delay="1s"
               direction="normal"
@@ -61,46 +74,50 @@ function Home({ Component, pageProps, router }) {
             </MovingComponent>
           </div>
           <div id="driverDescription">
-            <div class="listContainer">
-                {/* <StyleRoot>
+            <div id="driverListContainer">
+              {/* <StyleRoot>
                     <div id="animatedTest" style={styles.bounce}>
                     </div>
                 </StyleRoot>  */}
+              {/* <StyleRoot>
+                <div class="listAnimation" style={styles.bounce}> */}
               <MovingComponent
-                  type="fadeInFromTop"
-                  duration="2000ms"
-                  delay="1.2s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                1. Host Carpool Ride
-                </MovingComponent>
-                <br></br>
-                <MovingComponent
-                  type="fadeInFromTop"
-                  duration="2000ms"
-                  delay="1.4s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                2. View and Set Carbon Emission Goals
-                </MovingComponent>
-                <br></br>
-                <MovingComponent
-                  type="fadeInFromTop"
-                  duration="2000ms"
-                  delay="1.6s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                3. See Trip Cost Estimations with real-time gas prices
-                </MovingComponent>
+                type="fadeInFromLeft"
+                duration="2000ms"
+                delay="1.2s"
+                direction="normal"
+                timing="ease-in"
+                iteration="1"
+                fillMode="none"
+              >
+                1.Host Carpool Ride
+              </MovingComponent>
+              <br></br>
+              <MovingComponent
+                type="fadeInFromLeft"
+                duration="2000ms"
+                delay="1.4s"
+                direction="normal"
+                timing="ease-in"
+                iteration="1"
+                fillMode="none"
+              >
+                2.View and Set Carbon Emission Goals
+              </MovingComponent>
+              <br></br>
+              <MovingComponent
+                type="fadeInFromLeft"
+                duration="2000ms"
+                delay="1.6s"
+                direction="normal"
+                timing="ease-in"
+                iteration="1"
+                fillMode="none"
+              >
+                3.See Trip Cost Estimations with real-time gas prices
+              </MovingComponent>
+              {/* </div>
+              </StyleRoot> */}
             </div>
           </div>
         </div>
@@ -119,7 +136,7 @@ function Home({ Component, pageProps, router }) {
         <div id="riderInfo">
           <div id="riderTitle">
             <MovingComponent
-              type="fadeInFromTop"
+              type="fadeInFromRight"
               duration="2000ms"
               delay="1s"
               direction="normal"
@@ -132,41 +149,45 @@ function Home({ Component, pageProps, router }) {
           </div>
           <div id="riderDescription">
             <div class="listContainer">
-              <MovingComponent
-                type="fadeInFromTop"
-                duration="2000ms"
-                delay="1.2s"
-                direction="normal"
-                timing="ease-in"
-                iteration="1"
-                fillMode="none"
-              >
-                1. Request Carpool Sessions
-              </MovingComponent>
-              <br></br>
-              <MovingComponent
-                type="fadeInFromTop"
-                duration="2000ms"
-                delay="1.4s"
-                direction="normal"
-                timing="ease-in"
-                iteration="1"
-                fillMode="none"
-              >
-                2. View and Set Carbon Emission Goals
-              </MovingComponent>
-              <br></br>
-              <MovingComponent
-                type="fadeInFromTop"
-                duration="2000ms"
-                delay="1.6s"
-                direction="normal"
-                timing="ease-in"
-                iteration="1"
-                fillMode="none"
-              >
-                3. See Trip Cost Estimations with real-time gas prices
-              </MovingComponent>
+              <StyleRoot>
+                <div id="riderListContainer" style={styles.bounce}>
+                  <MovingComponent
+                    type="fadeInFromRight"
+                    duration="2000ms"
+                    delay="1.2s"
+                    direction="normal"
+                    timing="ease-in"
+                    iteration="1"
+                    fillMode="none"
+                  >
+                    1.Request Carpool Ride
+                  </MovingComponent>
+                  <br></br>
+                  <MovingComponent
+                    type="fadeInFromRight"
+                    duration="2000ms"
+                    delay="1.4s"
+                    direction="normal"
+                    timing="ease-in"
+                    iteration="1"
+                    fillMode="none"
+                  >
+                    2.View and Set Carbon Emission Goals
+                  </MovingComponent>
+                  <br></br>
+                  <MovingComponent
+                    type="fadeInFromRight"
+                    duration="2000ms"
+                    delay="1.6s"
+                    direction="normal"
+                    timing="ease-in"
+                    iteration="1"
+                    fillMode="none"
+                  >
+                    3.See Trip Cost Estimations with real-time gas prices
+                  </MovingComponent>
+                </div>
+              </StyleRoot>
             </div>
           </div>
         </div>

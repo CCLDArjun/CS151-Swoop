@@ -6,23 +6,23 @@
   position: absolute;
   width: 500px;
   height: 500px;
-  top: 25%;
+  top: 30%;
   left: 15%;
   bottom: 50%;
   border-radius: 25px;
   background-color: #E9DAC4;
-  font-family:'Times New Roman', Times, serif;
+  font-family:monospace;
 }
 #riderSection{
   position: absolute;
   width: 500px;
   height: 500px;
-  top: 25%;
+  top: 30%;
   left: 55%;
   bottom: 50%;
   border-radius: 25px;
   background-color: #E9DAC4;
-  font-family: 'Times New Roman', Times, serif;
+  font-family:monospace;
 }
 #driverButton{
   position: absolute;
@@ -64,30 +64,55 @@
 
 #welcomeHeader{
   text-align: center;
-  padding-top: 75px;
-  font-size: 45px;
+  padding-top: 30px;
+  font-size: 55px;
   visibility: hidden;
+  font-weight: bold;
+  font-family: monospace;
+  border-radius: 25px;
+  background-color: #E9DAC4;
+  width: 700px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 400px;
 }
-.listContainer{
+#driverListContainer{
   font-size: 30px;
   width: 100%;
   text-align: left;
   /* background-color: white;
   padding-top: 25px;
   padding-right: 150px; */
-  left: -20%;
+  left: -50%;
   position: absolute;
+}
+#riderListContainer{
+  font-size: 30px;
+  width: 100%;
+  text-align: left;
+  /* background-color: white;
+  padding-top: 25px;
+  padding-right: 150px; */
+  left: -38%;
+  position: absolute;
+
 }
 #riderTitle{
   font-size: 55px;
-  text-align: center;
+  /* text-align: center; */
   padding-bottom: 30px;
+  background-color: white;
+  margin-right: 20px;
+  font-weight: bold;
 }
 #driverTitle{
   font-size: 55px;
   padding-left: 90px;
   text-align: center;
   padding-bottom: 30px;
+  font-weight: bold;
+  background-color: white;
+  padding-right: 50px;
 }
 #animatedTest{
   width: 100%;
