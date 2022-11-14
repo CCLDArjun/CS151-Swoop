@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const BoxContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
+position: relative;
+display: inline-block;
+opacity: 1;
+transition: opacity 1s ease-in 0s;
 `;
 
 export const FormContainer = styled.form`
