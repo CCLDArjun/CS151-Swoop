@@ -7,11 +7,10 @@
   width: 500px;
   height: 500px;
   top: 30%;
-  left: 15%;
+  left: 10%;
   bottom: 50%;
   border-radius: 25px;
   background-color: #E9DAC4;
-  font-family:monospace;
 }
 #riderSection{
   position: absolute;
@@ -22,31 +21,30 @@
   bottom: 50%;
   border-radius: 25px;
   background-color: #E9DAC4;
-  font-family:monospace;
 }
 #driverButton{
   position: absolute;
   bottom: 5%;
-  left: 190px;
+  left: 170px;
   visibility: hidden;
 }
 #riderButton{
   position: absolute;
   bottom: 5%;
-  left: 190px;
+  left: 180px;
   visibility: hidden;
 }
 #driverInfo{
   position: absolute;
   bottom: 400px;
-  left: 100px;
+  left: 120px;
   font-size: 25px;
   visibility: hidden;
 }
 #riderInfo{
   position: absolute;
   bottom: 400px;
-  left: 200px;
+  left: 240px;
   visibility: hidden;
 }
 #driverDescription{
@@ -64,27 +62,33 @@
 
 #welcomeHeader{
   text-align: center;
-  padding-top: 30px;
   font-size: 55px;
   visibility: hidden;
   font-weight: bold;
-  font-family: monospace;
+  border: none;
   border-radius: 25px;
-  background-color: #E9DAC4;
+  background: rgba(204, 204, 204, 0.5);
   width: 700px;
-  padding-bottom: 30px;
+  height: fit-content;
   margin-top: 20px;
   margin-left: 400px;
+  bottom: 100px;
 }
 #driverListContainer{
   font-size: 30px;
-  width: 100%;
-  text-align: left;
+  width: fit-content;
+  /* text-align: left; */
   /* background-color: white;
   padding-top: 25px;
   padding-right: 150px; */
-  left: -50%;
-  position: absolute;
+  left: 30%;
+  position: relative;
+  bottom: 80px;
+}
+#animatedCar{
+  width: 460px;
+  height: fit-content;
+  border-radius: 25px;
 }
 #riderListContainer{
   font-size: 30px;
@@ -94,27 +98,40 @@
   padding-top: 25px;
   padding-right: 150px; */
   left: -38%;
-  position: absolute;
+  position: relative;
+  
 
 }
 #riderTitle{
-  font-size: 55px;
+  font-size: 40px;
   /* text-align: center; */
+  /* padding-bottom: 30px; */
+  font-weight: 400;
+  text-align: left;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  left: 90px;
   padding-bottom: 30px;
-  background-color: white;
-  margin-right: 20px;
-  font-weight: bold;
+  bottom: 90px;
+
 }
-#driverTitle{
-  font-size: 55px;
-  padding-left: 90px;
-  text-align: center;
-  padding-bottom: 30px;
-  font-weight: bold;
-  background-color: white;
-  padding-right: 50px;
+#startDrivingLabel{
+  font-size: 40px;
+  position: relative;
+  font-weight: 400;
+  width: 500px;
+  height: fit-content;
+  left: 38%;
+  padding-left: 20px;
+  bottom: 90px;
 }
-#animatedTest{
-  width: 100%;
-  /* background-image: "swoop/src/components/images/SwoopLoginBackground.jpg"; */
+#riderAnimation{
+  border-radius: 25px;
+  width: 460px;
+  background-color: white;
+  position: relative;
+  left: 107px;
+  bottom: 80px;
+  height: 345px;
 }

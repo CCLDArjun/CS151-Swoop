@@ -21,7 +21,7 @@ const LogoText = styled.h2`
   margin: 0;
   margin-left: 4px;
   color: #222;
-  font-weight: 600;
+  font-weight: 500;
 `;
 const NavHome = styled.a`
   text-decoration: none;

@@ -15,10 +15,10 @@ function Rider() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Set Carbon Goals</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="/rider/setCarbonGoals" />
         <meta
           name="description"
-          content="CS151 Final Project - Swoop application"
+          content="Swoop Set Carbon Goals Page"
         />
       </Helmet>
       <Navbar />
