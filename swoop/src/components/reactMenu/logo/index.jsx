@@ -17,20 +17,25 @@ const LogoImg = styled.div`
 `;
 
 const LogoText = styled.h2`
-  font-size: 16px;
+  font-size: 19px;
   margin: 0;
   margin-left: 4px;
   color: #222;
   font-weight: 500;
 `;
+const NavHome = styled.a`
+  text-decoration: none;
+`;
 
 export function Logo(props) {
   return (
-    <LogoWrapper>
-      <LogoImg>
-        <img src={SwoopLogoImg} alt="Swoop logo" />
-      </LogoImg>
-      <LogoText>Welcome to Swoop!</LogoText>
-    </LogoWrapper>
+    <NavHome href="/home">
+      <LogoWrapper>
+        <LogoImg>
+          <img src={SwoopLogoImg} alt="Swoop logo" />
+        </LogoImg>
+        <LogoText>Swoop</LogoText>
+      </LogoWrapper>
+    </NavHome>
   );
 }
