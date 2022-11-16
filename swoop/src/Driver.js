@@ -79,7 +79,7 @@ function Driver() {
                     class="input-field"
                     id="tripOrigin"
                     type="text"
-                    placeholder="Origin"
+                    placeholder="From?"
                   />
                 </MovingComponent>
               </div>
@@ -107,7 +107,7 @@ function Driver() {
                   <Input
                     id="tripDestination"
                     type="text"
-                    placeholder="Destination"
+                    placeholder="Where to?"
                     class="input-field"
                   />
                 </MovingComponent>
