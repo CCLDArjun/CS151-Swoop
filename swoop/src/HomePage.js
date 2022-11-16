@@ -2,7 +2,6 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import "./homePageStyles.css";
 import AwesomeButtonStyles from "react-awesome-button";
-import "react-awesome-button/dist/styles.css";
 import { GiSteeringWheel, GiPerson } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import MovingComponent from "react-moving-text";
@@ -13,12 +12,17 @@ import { Helmet } from "react-helmet";
 import animatedCarGif from "./components/images/carAnimated.gif";
 import riderAnimation from "./components/images/riderAnimation.gif";
 
-function Home({ Component, pageProps, router }) {
+function Home() {
   const navigate = useNavigate();
   const goToRiderPage = () => {
     let path = "/rider/setCarbonGoals";
     navigate(path);
   };
+  const goToDriverPage = () =>{
+    let path = '/driver';
+    navigate(path);
+  };
+
   setTimeout(function () {
     document.getElementById("driverInfo").style.visibility = "visible";
     document.getElementById("driverButton").style.visibility = "visible";
@@ -55,7 +59,7 @@ function Home({ Component, pageProps, router }) {
             iteration="1"
             fillMode="none"
           >
-          Welcome to Swoop
+            Welcome to Swoop
           </MovingComponent>
         </div>
         <div id="driverSection" style={styles.bounce}>
@@ -77,49 +81,6 @@ function Home({ Component, pageProps, router }) {
                     alt="animated car"
                   />
                 </MovingComponent>
-                {/* <StyleRoot>
-                    <div id="animatedTest" style={styles.bounce}>
-                    </div>
-                </StyleRoot>  */}
-                {/* <StyleRoot>
-                <div class="listAnimation" style={styles.bounce}> */}
-                {/* <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="1.2s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  1.Host Carpool Ride
-                </MovingComponent>
-                <br></br>
-                <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="1.4s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  2.View and Set Carbon Emission Goals
-                </MovingComponent>
-                <br></br>
-                <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="1.6s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  3.See Trip Cost Estimations with real-time gas prices
-                </MovingComponent> */}
-                {/* </div>
-              </StyleRoot> */}
               </div>
               <div id="startDrivingLabel">
                 <MovingComponent
@@ -137,14 +98,25 @@ function Home({ Component, pageProps, router }) {
             </div>
           </div>
           <div id="driverButton">
-            <AwesomeButton
-              cssModule={AwesomeButtonStyles}
-              before={<GiSteeringWheel />}
-              type="primary"
-              size="medium"
+            <MovingComponent
+              type="fadeInFromLeft"
+              duration="2000ms"
+              delay="1s"
+              direction="normal"
+              timing="ease-in"
+              iteration="1"
+              fillMode="none"
             >
-              Driver
-            </AwesomeButton>
+              <AwesomeButton
+                cssModule={AwesomeButtonStyles}
+                before={<GiSteeringWheel />}
+                type="primary"
+                size="medium"
+                onPress={goToDriverPage}
+              >
+                Driver
+              </AwesomeButton>
+            </MovingComponent>
           </div>
         </div>
         <div id="riderSection" style={styles.bounce}>
@@ -164,43 +136,8 @@ function Home({ Component, pageProps, router }) {
                     >
                       <img id="riderAnimation" src={riderAnimation} />
                     </MovingComponent>
-                    {/* <MovingComponent
-                      type="fadeInFromRight"
-                      duration="2000ms"
-                      delay="1.2s"
-                      direction="normal"
-                      timing="ease-in"
-                      iteration="1"
-                      fillMode="none"
-                    >
-                      1.Request Carpool Ride
-                    </MovingComponent>
-                    <br></br>
-                    <MovingComponent
-                      type="fadeInFromRight"
-                      duration="2000ms"
-                      delay="1.4s"
-                      direction="normal"
-                      timing="ease-in"
-                      iteration="1"
-                      fillMode="none"
-                    >
-                      2.View and Set Carbon Emission Goals
-                    </MovingComponent>
-                    <br></br>
-                    <MovingComponent
-                      type="fadeInFromRight"
-                      duration="2000ms"
-                      delay="1.6s"
-                      direction="normal"
-                      timing="ease-in"
-                      iteration="1"
-                      fillMode="none"
-                    >
-                      3.See Trip Cost Estimations with real-time gas prices
-                    </MovingComponent> */}
                   </div>
-                  <div id="riderTitle">
+                  <div id="bookARideLabel">
                     <MovingComponent
                       type="fadeInFromRight"
                       duration="2000ms"
@@ -218,15 +155,25 @@ function Home({ Component, pageProps, router }) {
             </div>
           </div>
           <div id="riderButton">
-            <AwesomeButton
-              cssModule={AwesomeButtonStyles}
-              before={<GiPerson />}
-              type="primary"
-              size="medium"
-              onPress={goToRiderPage}
+            <MovingComponent
+              type="fadeInFromRight"
+              duration="2000ms"
+              delay="1s"
+              direction="normal"
+              timing="ease-in"
+              iteration="1"
+              fillMode="none"
             >
-              Rider
-            </AwesomeButton>
+              <AwesomeButton
+                cssModule={AwesomeButtonStyles}
+                before={<GiPerson />}
+                type="primary"
+                size="medium"
+                onPress={goToRiderPage}
+              >
+                Rider
+              </AwesomeButton>
+            </MovingComponent>
           </div>
         </div>
       </StyleRoot>

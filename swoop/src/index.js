@@ -8,6 +8,7 @@ import Rider from "./Rider";
 import RiderMission from './riderMission';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Driver from "./Driver";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ root.render(
         <Route path='home' element = {<Home/>}/>
         <Route path='rider/setCarbonGoals' element = {<Rider/>}/>
         <Route path='rider/ourMission' element = {<RiderMission/>}/>
+        <Route path='driver' element = {<Driver/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
