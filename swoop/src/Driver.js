@@ -35,7 +35,7 @@ function Driver() {
             iteration="1"
             fillMode="none"
           >
-            Set Up A Trip
+            Set up a Trip
           </MovingComponent>
         </div>
         <MovingComponent
@@ -74,7 +74,7 @@ function Driver() {
                   iteration="1"
                   fillMode="none"
                 >
-                  <i class="fa fa-circle" aria-hidden="true"></i>
+                  <i class="fa fa-home" aria-hidden="true"></i>
                   <Input
                     class="input-field"
                     id="tripOrigin"

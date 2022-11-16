@@ -18,8 +18,8 @@ function Home() {
     let path = "/rider/setCarbonGoals";
     navigate(path);
   };
-  const goToDriverPage = () =>{
-    let path = '/driver';
+  const goToDriverPage = () => {
+    let path = "/driver";
     navigate(path);
   };
 
@@ -62,120 +62,120 @@ function Home() {
             Welcome to Swoop
           </MovingComponent>
         </div>
-        <div id="driverSection" style={styles.bounce}>
-          <div id="driverInfo">
-            <div id="driverDescription">
-              <div id="driverListContainer">
-                <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="1s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  <img
-                    id="animatedCar"
-                    src={animatedCarGif}
-                    alt="animated car"
-                  />
-                </MovingComponent>
-              </div>
-              <div id="startDrivingLabel">
-                <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="1s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  Start driving today!
-                </MovingComponent>
-              </div>
-            </div>
-          </div>
-          <div id="driverButton">
-            <MovingComponent
-              type="fadeInFromLeft"
-              duration="2000ms"
-              delay="1s"
-              direction="normal"
-              timing="ease-in"
-              iteration="1"
-              fillMode="none"
-            >
-              <AwesomeButton
-                cssModule={AwesomeButtonStyles}
-                before={<GiSteeringWheel />}
-                type="primary"
-                size="medium"
-                onPress={goToDriverPage}
-              >
-                Driver
-              </AwesomeButton>
-            </MovingComponent>
-          </div>
-        </div>
-        <div id="riderSection" style={styles.bounce}>
-          <div id="riderInfo">
-            <div id="riderDescription">
-              <div class="listContainer">
-                <StyleRoot>
-                  <div id="riderListContainer" style={styles.bounce}>
-                    <MovingComponent
-                      type="fadeInFromRight"
-                      duration="2000ms"
-                      delay="1.2s"
-                      direction="normal"
-                      timing="ease-in"
-                      iteration="1"
-                      fillMode="none"
-                    >
-                      <img id="riderAnimation" src={riderAnimation} />
-                    </MovingComponent>
-                  </div>
-                  <div id="bookARideLabel">
-                    <MovingComponent
-                      type="fadeInFromRight"
-                      duration="2000ms"
-                      delay="1s"
-                      direction="normal"
-                      timing="ease-in"
-                      iteration="1"
-                      fillMode="none"
-                    >
-                      Book a ride!
-                    </MovingComponent>
-                  </div>
-                </StyleRoot>
+          <div id="driverSection" style={styles.bounce}>
+            <div id="driverInfo">
+              <div id="driverDescription">
+                <div id="driverListContainer">
+                  <MovingComponent
+                    type="fadeInFromLeft"
+                    duration="2000ms"
+                    delay="1s"
+                    direction="normal"
+                    timing="ease-in"
+                    iteration="1"
+                    fillMode="none"
+                  >
+                    <img
+                      id="animatedCar"
+                      src={animatedCarGif}
+                      alt="animated car"
+                    />
+                  </MovingComponent>
+                </div>
+                <div id="startDrivingLabel">
+                  <MovingComponent
+                    type="fadeInFromLeft"
+                    duration="2000ms"
+                    delay="1s"
+                    direction="normal"
+                    timing="ease-in"
+                    iteration="1"
+                    fillMode="none"
+                  >
+                    Start driving today!
+                  </MovingComponent>
+                </div>
               </div>
             </div>
-          </div>
-          <div id="riderButton">
-            <MovingComponent
-              type="fadeInFromRight"
-              duration="2000ms"
-              delay="1s"
-              direction="normal"
-              timing="ease-in"
-              iteration="1"
-              fillMode="none"
-            >
-              <AwesomeButton
-                cssModule={AwesomeButtonStyles}
-                before={<GiPerson />}
-                type="primary"
-                size="medium"
-                onPress={goToRiderPage}
+            <div id="driverButton">
+              <MovingComponent
+                type="fadeInFromLeft"
+                duration="2000ms"
+                delay="1s"
+                direction="normal"
+                timing="ease-in"
+                iteration="1"
+                fillMode="none"
               >
-                Rider
-              </AwesomeButton>
-            </MovingComponent>
+                <AwesomeButton
+                  cssModule={AwesomeButtonStyles}
+                  before={<GiSteeringWheel />}
+                  type="primary"
+                  size="medium"
+                  onPress={goToDriverPage}
+                >
+                  Driver
+                </AwesomeButton>
+              </MovingComponent>
+            </div>
           </div>
-        </div>
+          <div id="riderSection" style={styles.bounce}>
+            <div id="riderInfo">
+              <div id="riderDescription">
+                <div class="listContainer">
+                  <StyleRoot>
+                    <div id="riderListContainer" style={styles.bounce}>
+                      <MovingComponent
+                        type="fadeInFromRight"
+                        duration="2000ms"
+                        delay="1.2s"
+                        direction="normal"
+                        timing="ease-in"
+                        iteration="1"
+                        fillMode="none"
+                      >
+                        <img id="riderAnimation" src={riderAnimation} />
+                      </MovingComponent>
+                    </div>
+                    <div id="bookARideLabel">
+                      <MovingComponent
+                        type="fadeInFromRight"
+                        duration="2000ms"
+                        delay="1s"
+                        direction="normal"
+                        timing="ease-in"
+                        iteration="1"
+                        fillMode="none"
+                      >
+                        Book a ride!
+                      </MovingComponent>
+                    </div>
+                  </StyleRoot>
+                </div>
+              </div>
+            </div>
+            <div id="riderButton">
+              <MovingComponent
+                type="fadeInFromRight"
+                duration="2000ms"
+                delay="1s"
+                direction="normal"
+                timing="ease-in"
+                iteration="1"
+                fillMode="none"
+              >
+                <AwesomeButton
+                  cssModule={AwesomeButtonStyles}
+                  before={<GiPerson />}
+                  type="primary"
+                  size="medium"
+                  onPress={goToRiderPage}
+                >
+                  Rider
+                </AwesomeButton>
+              </MovingComponent>
+            </div>
+          </div>
       </StyleRoot>
     </div>
   );

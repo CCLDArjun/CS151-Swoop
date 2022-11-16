@@ -37,20 +37,29 @@ const Link = styled.a`
   font-size: 15px;
   font-weight: 600;
 `;
+const Seperator = styled.div`
+  width: 1px;
+  height: 20px;
+  border: 1px solid;
+  margin-top: 20px;
+  opacity: 0.8;
 
+`;
 export function NavLinks(props) {
   return (
     <NavLinksContainer>
       <LinksWrapper>
-      <LinkItem>
-            <Link href="/rider/ourMission">Our Mission</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/rider/setCarbonGoals">View Planned Trips</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/rider/viewImpact">View Carpool Requests</Link>
-          </LinkItem>
+        <LinkItem>
+          <Link href="/rider/ourMission">Our Mission</Link>
+        </LinkItem>
+        <Seperator/>
+        <LinkItem>
+          <Link href="/rider/setCarbonGoals">View Planned Trips</Link>
+        </LinkItem>
+        <Seperator/>
+        <LinkItem>
+          <Link href="/rider/viewImpact">View Carpool Requests</Link>
+        </LinkItem>
       </LinksWrapper>
     </NavLinksContainer>
   );
