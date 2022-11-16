@@ -29,7 +29,7 @@ function Driver() {
           <MovingComponent
             type="fadeInFromTop"
             duration="2000ms"
-            delay="1s"
+            delay="0s"
             direction="normal"
             timing="ease-in"
             iteration="1"
@@ -41,7 +41,7 @@ function Driver() {
         <MovingComponent
                   type="fadeInFromLeft"
                   duration="2000ms"
-                  delay="1s"
+                  delay="0s"
                   direction="normal"
                   timing="ease-in"
                   iteration="1"
@@ -58,7 +58,7 @@ function Driver() {
             <MovingComponent
               type="fadeInFromLeft"
               duration="2000ms"
-              delay="1s"
+              delay="0s"
               direction="normal"
               timing="ease-in"
               iteration="1"
@@ -68,7 +68,7 @@ function Driver() {
                 <MovingComponent
                   type="fadeInFromTop"
                   duration="2000ms"
-                  delay="1s"
+                  delay="0s"
                   direction="normal"
                   timing="ease-in"
                   iteration="1"
@@ -87,7 +87,7 @@ function Driver() {
             <MovingComponent
               type="fadeInFromRight"
               duration="2000ms"
-              delay="1s"
+              delay="0s"
               direction="normal"
               timing="ease-in"
               iteration="1"
@@ -97,7 +97,7 @@ function Driver() {
                 <MovingComponent
                   type="fadeInFromTop"
                   duration="2000ms"
-                  delay="1s"
+                  delay="0s"
                   direction="normal"
                   timing="ease-in"
                   iteration="1"
@@ -118,7 +118,7 @@ function Driver() {
             <MovingComponent
               type="fadeInFromBottom"
               duration="2000ms"
-              delay="1s"
+              delay="0s"
               direction="normal"
               timing="ease-in"
               iteration="1"
