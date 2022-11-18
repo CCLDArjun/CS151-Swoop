@@ -1,0 +1,38 @@
+#container{
+    width: 100%;
+    height:100%;
+    overflow-y: auto;
+}
+#accountInfoContainer{
+    background-color: #E9DAC4;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    border-radius: 25px;
+    margin-left: 250px;
+    margin-top: 50px;
+}
+#accountInfoHeader{
+    margin-left: 350px;
+    position: relative;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+}
+#recentTripsContainer{
+    background-color: #E9DAC4;
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    border-radius: 25px;
+    margin-left: 250px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#recentTripsHeader{
+    margin-left: 400px;
+    position: relative;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+}

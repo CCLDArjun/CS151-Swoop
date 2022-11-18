@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const AccessibilityContainer = styled.div`
   display: flex;
@@ -48,9 +49,14 @@ const LoginButton = styled.button`
 `;
 
 export function Accessibility(props) {
+    const navigate = useNavigate();
+    const goToViewProfilePage = () =>{
+      let path = "/viewProfile";
+      navigate(path);
+    }
   return (
     <AccessibilityContainer>
-      <RegisterButton>View Profile</RegisterButton>
+      <RegisterButton onClick={goToViewProfilePage}>View Profile</RegisterButton>
     </AccessibilityContainer>
   );
 }

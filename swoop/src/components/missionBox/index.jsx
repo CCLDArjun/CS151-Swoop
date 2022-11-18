@@ -70,7 +70,9 @@ const SmallText = styled.h5`
   z-index: 10;
   margin: 0;
   margin-top: 7px;
-  padding-left: 5px;
+  text-align: center;
+  padding-bottom: 30px;
+  padding-right: 25px;
 `;
 
 const InnerContainer = styled.div`

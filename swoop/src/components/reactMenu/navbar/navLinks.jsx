@@ -43,7 +43,7 @@ export function NavLinks(props) {
     <NavLinksContainer>
       <LinksWrapper>
       <LinkItem>
-            <Link href="/rider/ourMission">Our Mission</Link>
+            <Link href="/ourMission">Our Mission</Link>
           </LinkItem>
           <LinkItem>
             <Link href="/rider/setCarbonGoals">Set Carbon Goals</Link>
