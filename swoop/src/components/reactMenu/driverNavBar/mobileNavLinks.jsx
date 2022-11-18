@@ -31,6 +31,7 @@ const LinkItem = styled.li`
   font-size: 16px;
   display: flex;
   margin-bottom: 10px;
+
 `;
 
 const Link = styled.a`
@@ -56,13 +57,10 @@ export function MobileNavLinks(props) {
             <Link href="/ourMission">Our Mission</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="/rider/setCarbonGoals">Set Carbon Goals</Link>
+            <Link href="/rider/setCarbonGoals">View Planned Trips</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="/rider/viewImpact">View Impact</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/rider/requestRide">Request A Ride</Link>
+            <Link href="/rider/viewImpact">View Carpool Requests</Link>
           </LinkItem>
           <Marginer />
           <Accessibility />

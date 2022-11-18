@@ -42,18 +42,15 @@ export function NavLinks(props) {
   return (
     <NavLinksContainer>
       <LinksWrapper>
-      <LinkItem>
-            <Link href="/ourMission">Our Mission</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/rider/setCarbonGoals">Set Carbon Goals</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/rider/viewImpact">View Impact</Link>
-          </LinkItem>
-          <LinkItem>
-            <Link href="/rider/requestRide">Request A Ride</Link>
-          </LinkItem>
+        <LinkItem>
+          <Link href="/ourMission">Our Mission</Link>
+        </LinkItem>
+        <LinkItem>
+          <Link href="/rider/setCarbonGoals">View Planned Trips</Link>
+        </LinkItem>
+        <LinkItem>
+          <Link href="/rider/viewImpact">View Carpool Requests</Link>
+        </LinkItem>
       </LinksWrapper>
     </NavLinksContainer>
   );
