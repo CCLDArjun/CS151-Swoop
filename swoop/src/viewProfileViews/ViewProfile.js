@@ -25,7 +25,7 @@ function ViewProfile() {
         iteration="1"
         fillMode="none"
       >
-        <div id="accountInfoContainer">
+        <div class="infoContainer">
           <div id="accountInfoHeader">
             <h1>Account Information</h1>
           </div>
@@ -40,7 +40,7 @@ function ViewProfile() {
         iteration="1"
         fillMode="none"
       >
-        <div id="recentTripsContainer">
+        <div class="infoContainer">
           <div id="recentTripsHeader">
             <h1>Recent Trips</h1>
           </div>
