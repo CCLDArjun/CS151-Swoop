@@ -1,4 +1,7 @@
-package com.Swoop.Swoop;
+package com.Swoop.Swoop.models;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 public class User {
 	enum UserType{
@@ -9,12 +12,11 @@ public class User {
 	private String email;
 	private String password;
 	private UserType currentUserType;
-//TODO: Use MVC structure and implement a User Doa
-	public User(String fullName, String email, String password, com.Swoop.Swoop.User.UserType currentUserType) {
+	public User(@JsonProperty("fullName") String fullName, @JsonProperty("email")String email, @JsonProperty("password")String password) {
 		this.fullName = fullName;
 		this.email = email;
 		this.password = password;
-		this.currentUserType = currentUserType;
+
 	}
 
 	public void setFullName(String fullName) {
@@ -29,7 +31,7 @@ public class User {
 		this.password = password;
 	}
 
-	public void setCurrentUserType(com.Swoop.Swoop.User.UserType currentUserType) {
+	public void setCurrentUserType(UserType currentUserType) {
 		this.currentUserType = currentUserType;
 	}
 
@@ -45,7 +47,7 @@ public class User {
 		return password;
 	}
 
-	public com.Swoop.Swoop.User.UserType getCurrentUserType() {
+	public UserType getCurrentUserType() {
 		return currentUserType;
 	}
 }
