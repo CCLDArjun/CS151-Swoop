@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 import MovingComponent from "react-moving-text";
 import { bounce } from "react-animations";
 import Radium, { StyleRoot } from "radium";
-import { Navbar } from "./components/reactMenu/navbar";
+import { Navbar } from "../components/reactMenu/navbar";
 import { Helmet } from "react-helmet";
-import animatedCarGif from "./components/images/carAnimated.gif";
-import riderAnimation from "./components/images/riderAnimation.gif";
+import animatedCarGif from "../components/images/carAnimated.gif";
+import riderAnimation from "../components/images/riderAnimation.gif";
 
 function Home() {
   const navigate = useNavigate();
@@ -29,6 +29,8 @@ function Home() {
     document.getElementById("riderInfo").style.visibility = "visible";
     document.getElementById("riderButton").style.visibility = "visible";
     document.getElementById("welcomeHeader").style.visibility = "visible";
+    document.getElementById("driverSection").style.visibility = "visible";
+    document.getElementById("riderSection").style.visibility = "visible";
   }, 1000);
   const styles = {
     bounce: {

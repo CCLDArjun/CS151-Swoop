@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { LoginForm } from "./loginForm";
 import { motion } from "framer-motion";
-import { AccountContext } from "./accountContext";
+import { RiderContext } from "./accountContext";
 import { SignupForm } from "./signupForm";
 
 const BoxContainer = styled.div`
   width: 380px;
-  min-height: 570px;
+  min-height: 550px;
   display: flex;
   flex-direction: column;
   border-radius: 19px;
@@ -16,6 +16,7 @@ const BoxContainer = styled.div`
   position: relative;
   overflow: hidden;
   margin-top: 70px;
+
 `;
 
 const TopContainer = styled.div`
@@ -26,6 +27,7 @@ const TopContainer = styled.div`
   justify-content: flex-end;
   padding: 0 1.8em;
   padding-bottom: 5em;
+  padding-right: 10px;
 `;
 
 const BackDrop = styled(motion.div)`
@@ -52,7 +54,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderText = styled.h2`
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   line-height: 1.24;
   color: #fff;
@@ -67,6 +69,7 @@ const SmallText = styled.h5`
   z-index: 10;
   margin: 0;
   margin-top: 7px;
+  padding-left: 5px;
 `;
 
 const InnerContainer = styled.div`
@@ -98,7 +101,7 @@ const expandingTransition = {
 };
 export var userMap = new Map();
 
-export function AccountBox(props) {
+export function RiderBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState("signin");
   const playExpandingAnimation = () => {
@@ -125,7 +128,7 @@ export function AccountBox(props) {
   const contextValue = { switchToSignup, switchToSignin };
 
   return (
-    <AccountContext.Provider value={contextValue}>
+    <RiderContext.Provider value={contextValue}>
       <BoxContainer>
         <TopContainer>
           <BackDrop
@@ -136,16 +139,9 @@ export function AccountBox(props) {
           />
           {active === "signin" && (
             <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>To Swoop</HeaderText>
-              <SmallText>Please sign-in to continue!</SmallText>
-            </HeaderContainer>
-          )}
-          {active === "signup" && (
-            <HeaderContainer>
-              <HeaderText>Create</HeaderText>
-              <HeaderText>Account</HeaderText>
-              <SmallText>Please sign-up to continue!</SmallText>
+              <HeaderText>Set Your</HeaderText>
+              <HeaderText>Goals</HeaderText>
+              <SmallText>How much carbon do you want to save?</SmallText>
             </HeaderContainer>
           )}
         </TopContainer>
@@ -154,6 +150,6 @@ export function AccountBox(props) {
           {active === "signup" && <SignupForm />}
         </InnerContainer>
       </BoxContainer>
-    </AccountContext.Provider>
+    </RiderContext.Provider>
   );
 }
