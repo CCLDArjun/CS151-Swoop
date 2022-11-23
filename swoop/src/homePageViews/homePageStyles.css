@@ -27,7 +27,7 @@
 }
 #driverButton{
   position: relative;
-  top: 435px;
+  top: 12px;
   left: 170px;
   visibility: hidden;
 }
@@ -40,7 +40,7 @@
 #driverInfo{
   position: relative;
   top: 100px;
-  left: -380px;
+  left: -280px;
   font-size: 25px;
   visibility: hidden;
 }
@@ -51,7 +51,7 @@
   visibility: hidden;
 }
 #driverDescription{
-  position: absolute;
+  position: relative;
   width: 400px;
   padding-right: 70px;
   right: -200px;
