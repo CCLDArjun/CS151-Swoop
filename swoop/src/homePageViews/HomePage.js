@@ -67,7 +67,7 @@ function Home() {
           <div id="driverSection" style={styles.bounce}>
             <div id="driverInfo">
               <div id="driverDescription">
-                <div id="driverListContainer">
+                <div id="driverGifContainer">
                   <MovingComponent
                     type="fadeInFromLeft"
                     duration="2000ms"
@@ -126,7 +126,7 @@ function Home() {
               <div id="riderDescription">
                 <div class="listContainer">
                   <StyleRoot>
-                    <div id="riderListContainer" style={styles.bounce}>
+                    <div id="riderGifContainer" style={styles.bounce}>
                       <MovingComponent
                         type="fadeInFromRight"
                         duration="2000ms"

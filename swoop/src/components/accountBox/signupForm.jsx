@@ -10,29 +10,69 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 import {userMap} from "./index";
-import {User} from "./User";
+import axios from "axios";
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
-  function setUserAccountInfo(){
+  // var currentUser;
+  const sendUserToBackEnd = () => {
     var name = document.getElementById('signUpNameField').value;
     var email = document.getElementById('signUpEmailField').value;
     var firstPassword = document.getElementById('signUpPasswordField').value;
     var confirmPassword = document.getElementById('signUpConfirmPasswordField').value;
-    var finalPassword;
-    if(firstPassword === confirmPassword && !userMap.has(email)){ // successful account creation
-      finalPassword = confirmPassword;
-      const currentUser = new User(name, email, finalPassword);
-      userMap.set(currentUser.email, currentUser);
-      console.log(userMap);
-      switchToSignin();
-    } else if(userMap.has(email)){
-      alert('An account with this email already exists.');
+    if(firstPassword === confirmPassword){
+      try{
+        const res = axios.post('http://localhost:8080/api/v1/user',{
+          fullName: name,
+          email: email,
+          password: confirmPassword
+        })
+        .then((res) => console.log(res))
+        switchToSignin();
+      } catch(err){
+        console.log(err);
+      }
+    }else{
+      alert('Passwords did not match.')
     }
-    else{
-      alert('Passwords did not match.');
-    }
+
   }
+
+  // function setUserAccountInfo(){
+  //   var name = document.getElementById('signUpNameField').value;
+  //   var email = document.getElementById('signUpEmailField').value;
+  //   var firstPassword = document.getElementById('signUpPasswordField').value;
+  //   var confirmPassword = document.getElementById('signUpConfirmPasswordField').value;
+  //   var finalPassword;
+  //   if(firstPassword === confirmPassword && !userMap.has(email)){ // successful account creation
+  //     finalPassword = confirmPassword;
+  //     currentUser = new User(name, email, finalPassword);
+  //     switchToSignin();
+  //     return currentUser;
+  //   } else if(userMap.has(email)){
+  //     alert('An account with this email already exists.');
+  //   }
+  //   else{
+  //     alert('Passwords did not match.');
+  //   }
+  // }
+  // function getUser(userEmail){
+  //   fetch('http://localhost:8080/api/v1/user/' + userEmail,{
+  //     method: 'GET',
+  //     body: JSON.stringify()
+  //   })
+  // }
+  // function createUser(user) {
+  //   axios.post('http://localhost:8080/api/v1/user',{
+  //     fullName: currentUser.fullName,
+  //     email: currentUser.email,
+  //     password: currentUser.password
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //     console.log(user);
+  //   })
+  // }
 
   return (
     <BoxContainer>
@@ -43,7 +83,7 @@ export function SignupForm(props) {
         <Input id = "signUpConfirmPasswordField" type="password" placeholder="Confirm Password" />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit" onClick={ setUserAccountInfo }>Signup</SubmitButton>
+      <SubmitButton type="submit" onClick={sendUserToBackEnd}>Signup</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Already have an account?

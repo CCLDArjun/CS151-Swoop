@@ -1,56 +1,57 @@
 .container {
     height: 100%;
     position: relative;
+    overflow-y: hidden;
   }
 #driverSection{
-  position: absolute;
+  position: relative;
   width: 500px;
   height: 500px;
   top: 30%;
-  left: 10%;
+  left: 15%;
   bottom: 50%;
   border-radius: 25px;
   background-color: #E9DAC4;
   visibility: hidden;
 }
 #riderSection{
-  position: absolute;
+  position: relative;
   width: 500px;
   height: 500px;
   top: 30%;
   left: 55%;
-  bottom: 50%;
+  bottom: 495px;
   border-radius: 25px;
   background-color: #E9DAC4;
   visibility: hidden;
 }
 #driverButton{
-  position: absolute;
-  bottom: 5%;
+  position: relative;
+  top: 12px;
   left: 170px;
   visibility: hidden;
 }
 #riderButton{
-  position: absolute;
-  bottom: 5%;
+  position: relative;
+  top: 435px;
   left: 180px;
   visibility: hidden;
 }
 #driverInfo{
-  position: absolute;
-  bottom: 400px;
-  left: 120px;
+  position: relative;
+  top: 100px;
+  left: -280px;
   font-size: 25px;
   visibility: hidden;
 }
 #riderInfo{
-  position: absolute;
-  bottom: 400px;
-  left: 240px;
+  position: relative;
+  top: 100px;
+  left: -260px;
   visibility: hidden;
 }
 #driverDescription{
-  position: absolute;
+  position: relative;
   width: 400px;
   padding-right: 70px;
   right: -200px;
@@ -72,17 +73,15 @@
   background: rgba(204, 204, 204, 0.5);
   width: 700px;
   height: fit-content;
-  margin-top: 20px;
-  margin-left: 400px;
+  margin-top: 150px;
+  margin-left: 550px;
+
   bottom: 100px;
+  position: relative;
 }
-#driverListContainer{
+#driverGifContainer{
   font-size: 30px;
   width: fit-content;
-  /* text-align: left; */
-  /* background-color: white;
-  padding-top: 25px;
-  padding-right: 150px; */
   left: 30%;
   position: relative;
   bottom: 80px;
@@ -92,22 +91,15 @@
   height: fit-content;
   border-radius: 25px;
 }
-#riderListContainer{
+#riderGifContainer{
   font-size: 30px;
   width: 100%;
   text-align: left;
-  /* background-color: white;
-  padding-top: 25px;
-  padding-right: 150px; */
   left: -38%;
   position: relative;
-  
-
 }
 #bookARideLabel{
   font-size: 40px;
-  /* text-align: center; */
-  /* padding-bottom: 30px; */
   font-weight: 500;
   text-align: left;
   position: relative;
