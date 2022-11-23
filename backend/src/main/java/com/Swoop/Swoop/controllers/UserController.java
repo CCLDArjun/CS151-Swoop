@@ -16,22 +16,27 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public Map<String, User> getAllUsers(){
         return userService.getAllUsers();
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "{email}")
     public Optional<User> getUserByEmail(@PathVariable("email") String email){
         return userService.getUserByEmail(email);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(path = "{email}")
     public void deleteUserByEmail(@PathVariable("email") String email){
         userService.deleteUser(email);
     }
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(path = "{email}")
     public void updateUser(@PathVariable("email") String email, @RequestBody User userToUpdate){
         userService.updateUser(email,userToUpdate);
