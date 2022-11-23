@@ -26,28 +26,28 @@
   visibility: hidden;
 }
 #driverButton{
-  position: absolute;
-  bottom: 5%;
+  position: relative;
+  top: 435px;
   left: 170px;
   visibility: hidden;
 }
 #riderButton{
-  position: absolute;
-  bottom: 5%;
+  position: relative;
+  top: 435px;
   left: 180px;
   visibility: hidden;
 }
 #driverInfo{
-  position: absolute;
-  bottom: 400px;
-  left: 120px;
+  position: relative;
+  top: 100px;
+  left: -380px;
   font-size: 25px;
   visibility: hidden;
 }
 #riderInfo{
-  position: absolute;
-  bottom: 400px;
-  left: 240px;
+  position: relative;
+  top: 100px;
+  left: -260px;
   visibility: hidden;
 }
 #driverDescription{
