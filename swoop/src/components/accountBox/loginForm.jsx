@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   BoldLink,
   BoxContainer,
@@ -10,20 +10,51 @@ import {
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
 import {userMap} from "./index";
-import { User } from "./User";
 import { useNavigate } from "react-router-dom";
+
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
   const navigate = useNavigate();
-  var userEmail;
-  var userPassword;
+  var inputEmail;
+  var inputPassword;
+  var retrievedEmail;
+  var retrievedPassword;
   function getUserInput(){
-    userEmail = document.getElementById('emailLoginField').value;
-    userPassword = document.getElementById('passwordLoginField').value;
-    if(userMap.has(userEmail) && userPassword === userMap.get(userEmail).password){ // successful Login
-      navigate("/home");
+    inputEmail = document.getElementById('emailLoginField').value;
+    inputPassword = document.getElementById('passwordLoginField').value;
+    // if(userMap.has(userEmail) && userPassword === userMap.get(userEmail).password){ // successful Login
+    //   navigate("/home");
+    // }else{
+    //   alert('Invalid username or password inputted.');
+    // }
+  }
+  async function getUser(email) {
+    try {
+      const response = await fetch('http://localhost:8080/api/v1/user/' + email,{
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      retrievedEmail = result.email;
+      retrievedPassword = result.password;
+      return result;
+    } catch (err) {
+      console.log(err);
+      alert('There was an error retrieving account information.')
+    }
+  }
+  function verifyLogin(){
+    if(inputEmail === retrievedEmail && inputPassword === retrievedPassword){ // successful login
+        navigate('/home');
     }else{
-      alert('Invalid username or password inputted.');
+      alert('Password was incorrect.')
     }
   }
   return (
@@ -35,7 +66,11 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" onClick={getUserInput}>Signin</SubmitButton>
+      <SubmitButton type="submit" onClick={event =>{
+        getUserInput();
+        getUser(inputEmail);
+        verifyLogin()
+      }}>Signin</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}
@@ -44,5 +79,6 @@ export function LoginForm(props) {
         </BoldLink>
       </MutedLink>
     </BoxContainer>
+
   );
 }
