@@ -1,5 +1,6 @@
 package com.Swoop.Swoop.services;
 
+import com.Swoop.Swoop.Database;
 import com.Swoop.Swoop.controllers.UserDao;
 import com.Swoop.Swoop.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class UserService {
     public int addUser(User user){
         return userController.insertUser(user.getEmail(), user);
     }
-    public Map<String, User> getAllUsers(){
+    public Database getAllUsers(){
         return userController.selectAllUsers();
     }
     public Optional<User> getUserByEmail(String email){
