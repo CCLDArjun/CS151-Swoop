@@ -1,4 +1,5 @@
 package com.Swoop.Swoop.controllers;
+import com.Swoop.Swoop.Database;
 import com.Swoop.Swoop.models.User;
 import org.springframework.stereotype.Repository;
 
@@ -8,12 +9,11 @@ import java.util.Optional;
 
 @Repository("controller")
 public class UserDataAccessService implements UserDao {
-    private static Map<String, User> DB = new HashMap<>();
+    private static Database DB = new Database();
 
     @Override
     public int insertUser(String email, User user) {
-        DB.put(email, user);
-        return 1;
+        return DB.addUser(email, user);
     }
 
     @Override
@@ -22,33 +22,21 @@ public class UserDataAccessService implements UserDao {
     }
 
     @Override
-    public Map<String, User> selectAllUsers() {
+    public Database selectAllUsers() {
         return DB;
     }
 
     @Override
     public Optional<User> selectUserByEmail(String email) {
-        if(DB.containsKey(email)) {
-            return Optional.ofNullable(DB.get(email));
-        }else{
-            return null;
-        }
+        return DB.selectUserByEmail(email);
     }
     @Override
     public int deleteUserByEmail(String email) {
-        if(DB.containsKey(email)){
-            DB.remove(email);
-            return 1;
-        }
-        return 0;
+        return DB.deleteUser(email);
     }
 
     @Override
     public int updateUserByEmail(String email, User user) {
-        if (DB.containsKey(email)){
-            DB.put(email,user); // update user
-            return 1;
-        }
-        return 0;
+        return DB.updateUserByEmail(email, user);
     }
 }

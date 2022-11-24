@@ -1,5 +1,6 @@
 package com.Swoop.Swoop.controllers;
 
+import com.Swoop.Swoop.Database;
 import com.Swoop.Swoop.models.User;
 import com.Swoop.Swoop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class UserController {
     }
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
-    public Map<String, User> getAllUsers(){
+    public Database getAllUsers(){
         return userService.getAllUsers();
     }
     @CrossOrigin(origins = "http://localhost:3000")
