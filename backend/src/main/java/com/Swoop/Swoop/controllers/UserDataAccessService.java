@@ -1,17 +1,26 @@
 package com.Swoop.Swoop.controllers;
 import com.Swoop.Swoop.Database;
+import com.Swoop.Swoop.Ride;
 import com.Swoop.Swoop.models.User;
 import org.springframework.stereotype.Repository;
+import java.util.List;
 import java.util.Optional;
 
 @Repository("controller")
-public class UserDataAccessService implements UserDao {
+public class UserDataAccessService implements SwoopDao {
     private static Database DB = Database.getInstance();
 
     @Override
     public int insertUser(String email, User user) {
         return DB.addUser(email, user);
     }
+
+	@Override
+	public void addRide(User user, String start, String end, int distance) {
+		Ride r = new Ride(start, end, distance);
+		user.addRide(r);
+		DB.addRide(r);
+	}
 
     @Override
     public int addUser(User user) {
@@ -36,4 +45,9 @@ public class UserDataAccessService implements UserDao {
     public int updateUserByEmail(String email, User user) {
         return DB.updateUserByEmail(email, user);
     }
+
+	@Override
+	public List<Ride> getRides() {
+		return DB.rides;
+	}
 }
