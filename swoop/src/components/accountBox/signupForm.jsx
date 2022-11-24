@@ -25,7 +25,6 @@ export function SignupForm(props) {
           email: email,
           password: confirmPassword
         })
-        .then((res) => console.log(res))
         switchToSignin();
       } catch(err){
         console.log(err);

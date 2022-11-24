@@ -24,10 +24,6 @@ export function LoginForm(props) {
         if(inputEmail === response.data.email && inputPassword === response.data.password){
           navigate('/home');
         }else{
-          console.log(inputEmail);
-          console.log(response.data.email);
-          console.log(inputPassword);
-          console.log(response.data.password);
           alert('Password was incorrect.')
         }
       })
