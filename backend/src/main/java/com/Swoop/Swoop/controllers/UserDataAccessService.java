@@ -2,9 +2,6 @@ package com.Swoop.Swoop.controllers;
 import com.Swoop.Swoop.Database;
 import com.Swoop.Swoop.models.User;
 import org.springframework.stereotype.Repository;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @Repository("controller")
