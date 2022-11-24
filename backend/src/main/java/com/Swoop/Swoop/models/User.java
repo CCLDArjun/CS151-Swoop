@@ -14,7 +14,7 @@ public class User {
 	private String fullName;
 	private String email;
 	private String password;
-	private ArrayList<Ride> rides = new ArrayList<>();
+	public ArrayList<Ride> rides = new ArrayList<>();
 	private UserType currentUserType;
 	public boolean inRide = false;
 	public User(@JsonProperty("fullName") String fullName, @JsonProperty("email")String email, @JsonProperty("password")String password) {

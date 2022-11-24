@@ -5,11 +5,12 @@ import com.Swoop.Swoop.models.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 @Repository("controller")
-public class UserDataAccessService implements UserDao {
+public class UserDataAccessService implements SwoopDao {
     private static Database DB = Database.getInstance();
 
     @Override
@@ -47,4 +48,9 @@ public class UserDataAccessService implements UserDao {
     public int updateUserByEmail(String email, User user) {
         return DB.updateUserByEmail(email, user);
     }
+
+	@Override
+	public List<Ride> getRides() {
+		return DB.rides;
+	}
 }
