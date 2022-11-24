@@ -12,4 +12,5 @@ public interface UserDao {
     Optional<User> selectUserByEmail(String email);
     int deleteUserByEmail(String email);
     int updateUserByEmail(String email, User user);
+	void addRide(User user, String start, String end, int distance);
 }

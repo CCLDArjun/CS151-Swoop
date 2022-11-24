@@ -2,6 +2,7 @@ package com.Swoop.Swoop;
 
 import com.Swoop.Swoop.models.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -12,6 +13,7 @@ import java.util.Optional;
 public class Database {
     private static Database dbSingleton;
     private static Map<String, User> DB;
+	public ArrayList<Ride> rides = new ArrayList<>();
 
     private Database(){ }
 
@@ -60,5 +62,9 @@ public class Database {
             return null;
         }
     }
+
+	public void addRide(Ride r) {
+		rides.add(r);
+	}
 }
 
