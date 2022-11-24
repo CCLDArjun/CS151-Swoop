@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository("controller")
 public class UserDataAccessService implements UserDao {
-    private static Database DB = new Database();
+    private static Database DB = Database.getInstance();
 
     @Override
     public int insertUser(String email, User user) {
