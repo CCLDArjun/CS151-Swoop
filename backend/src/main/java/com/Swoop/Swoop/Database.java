@@ -10,10 +10,17 @@ import java.util.Optional;
  * Database
  */
 public class Database {
-    private Map<String, User> DB;
+    private static Database dbSingleton;
+    private static Map<String, User> DB;
 
-    public Database() {
-        this.DB = new HashMap<>();
+    private Database(){ }
+
+    public static synchronized Database getInstance(){
+        if(dbSingleton == null){
+            dbSingleton = new Database();
+            DB = new HashMap<>();
+        }
+        return dbSingleton;
     }
 
     public Map<String, User> getDB() {
@@ -21,12 +28,12 @@ public class Database {
     }
 
     public void setDB(Map<String, User> DB) {
-        this.DB = DB;
+        Database.DB = DB;
     }
 
     public int addUser(String email, User user){
-        if(!this.DB.containsKey(email)){
-            this.DB.put(email,user);
+        if(!DB.containsKey(email)){
+            DB.put(email,user);
             return 1;
         }else {
             return 0;
