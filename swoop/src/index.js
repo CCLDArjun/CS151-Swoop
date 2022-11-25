@@ -7,7 +7,6 @@ import Home from "./homePageViews/HomePage";
 import Rider from "./riderViews/Rider";
 import OurMission from './ourMissionViews/ourMission';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Driver from "./driverViews/Driver";
 import ViewProfile from "./viewProfileViews/ViewProfile";
 import ViewImpact from './impactViews/viewImpact';
@@ -23,7 +22,6 @@ root.render(
         <Route path='driver' element = {<Driver/>}/>
         <Route path='viewProfile' element = {<ViewProfile/>}/>
         <Route path='viewImpact' element = {<ViewImpact/>}/>
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

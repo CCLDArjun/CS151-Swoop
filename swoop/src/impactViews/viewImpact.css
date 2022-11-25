@@ -1,26 +1,34 @@
-#viewImpactGraph1Styles{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    user-select: none;
-    margin-top: 50px;
-}
-
-#viewImpactGraph2Styles{
-    position: absolute;
+#gasGraphContainer{
+    /* position: relative;
     width: 500px;
-    height: 100%;
+    height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     user-select: none;
-    margin-top: 500px;
-}
 
-#container{
+    background-color: black; */
+    width: 700px;
+    height: fit-content;
+    background-color: white;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+    position: relative;
+    left: 150px;
+}
+#co2GraphContainer{
+    width: 700px;
+    height: fit-content;
+    background-color: white;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+    position: relative;
+    bottom: 500px;
+    left: 950px;
+}
+.container{
     height: 100%;
     width: 100%;
     overflow-y: scroll;
