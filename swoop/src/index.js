@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Driver from "./driverViews/Driver";
 import ViewProfile from "./viewProfileViews/ViewProfile";
+import ViewImpact from './impactViews/viewImpact';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -21,6 +22,8 @@ root.render(
         <Route path='/ourMission' element = {<OurMission/>}/>
         <Route path='driver' element = {<Driver/>}/>
         <Route path='viewProfile' element = {<ViewProfile/>}/>
+        <Route path='viewImpact' element = {<ViewImpact/>}/>
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

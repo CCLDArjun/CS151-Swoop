@@ -1,7 +1,7 @@
 /* App.js */
 import React from "react";
 import { Component } from 'react';
-import CanvasJSReact from 'C:/Users/Shrey/github-workspace/CS151-Swoop-2/CS151-Swoop/swoop/src/impactViews/canvasjs-3.7.2/canvasjs.react.js';
+import CanvasJSReact from "./canvasjs-3.7.2/canvasjs.react";
 import { Navbar } from "../components/reactMenu/navbar";
 import "./viewImpact.css";
 
