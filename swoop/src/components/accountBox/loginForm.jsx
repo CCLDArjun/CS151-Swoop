@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   BoldLink,
   BoxContainer,
@@ -9,68 +9,39 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
-import {userMap} from "./index";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
   const navigate = useNavigate();
-  var inputEmail;
-  var inputPassword;
-  var retrievedEmail;
-  var retrievedPassword;
-  function getUserInput(){
-    inputEmail = document.getElementById('emailLoginField').value;
-    inputPassword = document.getElementById('passwordLoginField').value;
-    // if(userMap.has(userEmail) && userPassword === userMap.get(userEmail).password){ // successful Login
-    //   navigate("/home");
-    // }else{
-    //   alert('Invalid username or password inputted.');
-    // }
-  }
+  var [inputEmail, setInputEmail] = useState("");
+  var [inputPassword, setInputPassword] = useState("");
   async function getUser(email) {
-    try {
-      const response = await fetch('http://localhost:8080/api/v1/user/' + email,{
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-        },
-      });
-  
-      if (!response.ok) {
-        throw new Error(`Error! status: ${response.status}`);
-      }
-  
-      const result = await response.json();
-      retrievedEmail = result.email;
-      retrievedPassword = result.password;
-      return result;
-    } catch (err) {
-      console.log(err);
-      alert('There was an error retrieving account information.')
+    try{
+      axios.get('http://localhost:8080/api/v1/user/' + email)
+      .then(function (response){
+        if(inputEmail === response.data.email && inputPassword === response.data.password){
+          navigate('/home');
+        }else{
+          alert('Password was incorrect.')
+        }
+      })
     }
-  }
-  function verifyLogin(){
-    if(inputEmail === retrievedEmail && inputPassword === retrievedPassword){ // successful login
-        navigate('/home');
-    }else{
-      alert('Password was incorrect.')
+    catch(err){
+      console.log(err);
     }
   }
   return (
     <BoxContainer>
       <FormContainer>
-        <Input id = 'emailLoginField' type="email" placeholder="Email" />
-        <Input id = 'passwordLoginField' type="password" placeholder="Password" />
+        <Input id = 'emailLoginField' type="email" placeholder="Email" onChange={(e) => setInputEmail(e.target.value)}/>
+        <Input id = 'passwordLoginField' type="password" placeholder="Password" onChange={(e) => setInputPassword(e.target.value)}/>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" onClick={event =>{
-        getUserInput();
-        getUser(inputEmail);
-        verifyLogin()
-      }}>Signin</SubmitButton>
+      <SubmitButton type="submit" onClick={() => {getUser(inputEmail)}}>Signin</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}
