@@ -30,7 +30,7 @@ public class RiderController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/rides")
-    public List<Ride> getRides() {
+    public Map<Integer, Ride> getRides() {
 		return userService.getRides();
     }
 }

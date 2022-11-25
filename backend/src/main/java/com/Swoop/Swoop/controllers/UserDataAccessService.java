@@ -50,7 +50,25 @@ public class UserDataAccessService implements SwoopDao {
     }
 
 	@Override
-	public List<Ride> getRides() {
+	public Map<Integer, Ride> getRides() {
 		return DB.rides;
+	}
+
+	@Override
+	public void finishRide(User u) {
+		u.inRide = false;
+		int currentRideID = u.rides.get(u.rides.size() - 1);
+		Ride r = getRideByID(currentRideID);
+		r.finish();
+	}
+
+	@Override
+	public Ride getRideByID(int currentRideID) {
+		return DB.rides.get(currentRideID);
+	}
+
+	@Override
+	public void joinRide(User user, int rideID) {
+		user.addRide(getRideByID(rideID));
 	}
 }

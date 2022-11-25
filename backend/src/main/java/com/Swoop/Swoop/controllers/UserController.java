@@ -42,4 +42,16 @@ public class UserController {
     public void updateUser(@PathVariable("email") String email, @RequestBody User userToUpdate){
         userService.updateUser(email,userToUpdate);
     }
+
+	@CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/finishRide")
+    public void finishRide(@RequestParam String email){
+		userService.finishRide(email);
+    }
+
+	@CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/joinRide")
+    public void joinRide(@RequestParam String email, int rideID){
+		userService.joinRide(userService.getUserByEmail(email).get(), rideID);
+    }
 }

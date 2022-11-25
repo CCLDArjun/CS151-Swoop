@@ -15,5 +15,8 @@ public interface SwoopDao {
     int deleteUserByEmail(String email);
     int updateUserByEmail(String email, User user);
 	void addRide(User user, String start, String end, int distance);
-	List<Ride> getRides();
+	Map<Integer, Ride> getRides();
+	void finishRide(User u);
+	Ride getRideByID(int currentRideID);
+	void joinRide(User user, int rideID);
 }
