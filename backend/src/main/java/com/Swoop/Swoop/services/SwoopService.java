@@ -37,11 +37,19 @@ public class SwoopService {
         return controller.updateUserByEmail(email,user);
     }
 
-	public void addRide(User user, String start, String end, int distance) {
+	public void addRide(User user, String start, String end, float distance) {
 		controller.addRide(user, start, end, distance);
 	}
 
-	public List<Ride> getRides() {
+	public void joinRide(User user, int rideID) {
+		controller.joinRide(user, rideID);
+	}
+
+	public Map<Integer, Ride> getRides() {
 		return controller.getRides();
+	}
+
+	public void finishRide(String email) {
+		controller.finishRide(controller.selectUserByEmail(email).get());
 	}
 }

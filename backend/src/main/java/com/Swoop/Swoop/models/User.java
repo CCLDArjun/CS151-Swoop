@@ -14,7 +14,7 @@ public class User {
 	private String fullName;
 	private String email;
 	private String password;
-	public ArrayList<Ride> rides = new ArrayList<>();
+	public ArrayList<Integer> rides = new ArrayList<>();
 	private UserType currentUserType;
 	public boolean inRide = false;
 	public User(@JsonProperty("fullName") String fullName, @JsonProperty("email")String email, @JsonProperty("password")String password) {
@@ -26,7 +26,7 @@ public class User {
 
 	public void addRide(Ride r) {
 		inRide = true;
-		rides.add(r);
+		rides.add(r.id);
 		r.add(this);
 	}
 

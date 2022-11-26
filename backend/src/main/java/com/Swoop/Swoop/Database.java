@@ -13,7 +13,7 @@ import java.util.Optional;
 public class Database {
     private static Database dbSingleton;
     private static Map<String, User> DB;
-	public ArrayList<Ride> rides = new ArrayList<>();
+	public Map<Integer, Ride> rides = new HashMap<>();
 
     private Database(){ }
 
@@ -64,7 +64,7 @@ public class Database {
     }
 
 	public void addRide(Ride r) {
-		rides.add(r);
+		rides.put(r.id, r);
 	}
 }
 
