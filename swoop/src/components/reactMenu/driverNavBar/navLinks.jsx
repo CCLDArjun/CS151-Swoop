@@ -46,7 +46,7 @@ export function NavLinks(props) {
           <Link href="/ourMission">Our Mission</Link>
         </LinkItem>
         <LinkItem>
-          <Link href="/rider/setCarbonGoals">View Planned Trips</Link>
+          <Link href="/driver/viewTrips">View Planned Trips</Link>
         </LinkItem>
         <LinkItem>
           <Link href="/rider/viewImpact">View Carpool Requests</Link>
