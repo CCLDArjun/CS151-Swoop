@@ -21,3 +21,8 @@
     font-size: 25px;
     font-weight: 500;
 }
+.tripInfoContainer{
+    width: fit-content;
+    height: fit-content;
+    padding-left: 50px;
+}

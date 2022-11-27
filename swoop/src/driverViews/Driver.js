@@ -14,53 +14,105 @@ import axios from "axios";
 function Driver() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
-  const userEmail = localStorage.getItem("email").replaceAll('"', '');
+  const userEmail = localStorage.getItem("email").replaceAll('"', "");
   const [originLat, setOriginLat] = useState("");
   const [originLong, setOriginLong] = useState("");
   const [destLat, setDestLat] = useState("");
   const [destLong, setDestLong] = useState("");
   const [totalDistance, setTotalDistance] = useState(0); // in miles
-  function createTrip(){
-    var formattedOrigin = origin.substring(0,origin.indexOf(',')).toLowerCase().replaceAll(' ', '');
-    var formattedDestination = destination.substring(0,destination.indexOf(',')).toLowerCase().replaceAll(' ', '');
-    axios.get(`http://localhost:8080/api/v1/rider/addRide?email=${userEmail}&start=${formattedOrigin}&end=${formattedDestination}&distance=${totalDistance}`)
-    .then((response) => {
-      console.log(response);
-    })
+  const [distanceRequestStatus, setDistanceRequestStatus] = useState(0);
+  function createTrip() {
+    var formattedOrigin = origin
+      .substring(0, origin.indexOf(","))
+      .toLowerCase()
+      .replaceAll(" ", "");
+    var formattedDestination = destination
+      .substring(0, destination.indexOf(","))
+      .toLowerCase()
+      .replaceAll(" ", "");
+    if (distanceRequestStatus === 1) { // only creates the trip if the API request for the distance matrix for the trip was successful
+      axios
+        .get(
+          `http://localhost:8080/api/v1/rider/addRide?email=${userEmail}&start=${formattedOrigin}&end=${formattedDestination}&distance=${totalDistance}`
+        )
+        .then((response) => {
+          console.log(response);
+        });
+        alert('Trip creation was successful.');
+    } else{
+      console.log(distanceRequestStatus);
+    }
   }
-  function getOriginCoords(){
-    var originCity = origin.substring(0,origin.indexOf(','));
-    originCity = originCity.replaceAll(' ', '-');
-    var originState = origin.substring(origin.indexOf(',') + 1, origin.length);
-    axios.get(`http://dev.virtualearth.net/REST/v1/Locations/US/${originState}/-/${originCity}/-?&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`)
-    .then((response) => {
-      setOriginLat(response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[0]);
-      setOriginLong(response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[1]);
-    })
+  function getOriginCoords() {
+    var originCity = origin.substring(0, origin.indexOf(","));
+    originCity = originCity.replaceAll(" ", "-");
+    var originState = origin.substring(origin.indexOf(",") + 1, origin.length);
+    if (originCity !== "" && originState !== "") {
+      axios
+        .get(
+          `http://dev.virtualearth.net/REST/v1/Locations/US/${originState}/-/${originCity}/-?&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`
+        )
+        .then((response) => {
+          console.log(response);
+          setOriginLat(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[0]
+          );
+          setOriginLong(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[1]
+          );
+        });
+    }
   }
-  function getDestCoords(){
-    var destCity = destination.substring(0,destination.indexOf(','));
-    destCity = destCity.replaceAll(' ', '-');
-    var destState = destination.substring(destination.indexOf(',') + 1, destination.length);
-    axios.get(`http://dev.virtualearth.net/REST/v1/Locations/US/${destState}/-/${destCity}/-?&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`)
-    .then((response) => {
-      setDestLat(response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[0]);
-      setDestLong(response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[1]);
-    })
+  function getDestCoords() {
+    var destCity = destination.substring(0, destination.indexOf(","));
+    destCity = destCity.replaceAll(" ", "-");
+    var destState = destination.substring(
+      destination.indexOf(",") + 1,
+      destination.length
+    );
+    if (destCity !== "" && destState != "") {
+      axios
+        .get(
+          `http://dev.virtualearth.net/REST/v1/Locations/US/${destState}/-/${destCity}/-?&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`
+        )
+        .then((response) => {
+          console.log(response);
+          setDestLat(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[0]
+          );
+          setDestLong(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[1]
+          );
+        });
+    }
   }
-  function calculateDistanceBetweenOriginAndDest(orgLat, orgLong, destLat, destLong){
-    axios.get(`https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=${orgLat},${orgLong}&destinations=${destLat},${destLong}&travelMode=driving&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`)
-    .then((response) => {
-      setTotalDistance(convertKilometersToMiles(response.data.resourceSets[0].resources[0].results[0].travelDistance))
-    })
+  function calculateDistanceBetweenOriginAndDest() {
+      axios
+      .get(
+        `https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=${originLat},${originLong}&destinations=${destLat},${destLong}&travelMode=driving&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`
+      )
+      .then((response) => {
+        console.log(response);
+        setTotalDistance(
+          convertKilometersToMiles(
+            response.data.resourceSets[0].resources[0].results[0].travelDistance
+          )
+        );
+        console.log("SUCCESSFUL DISTNACE MATRIX");
+        setDistanceRequestStatus(1);
+      });
   }
-  function convertKilometersToMiles(kmVal){
+  function convertKilometersToMiles(kmVal) {
     const conversionFactor = 0.621371;
     const miles = kmVal * conversionFactor;
     return miles;
   }
   return (
-    <div id="container" >
+    <div id="container">
       <head>
         <link
           rel="stylesheet"
@@ -89,20 +141,16 @@ function Driver() {
           </MovingComponent>
         </div>
         <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="0s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  <img
-                    id="tripAnimation"
-                    src={TripAnimation}
-                    alt="Car Animation"
-                  />
-                </MovingComponent>
+          type="fadeInFromLeft"
+          duration="2000ms"
+          delay="0s"
+          direction="normal"
+          timing="ease-in"
+          iteration="1"
+          fillMode="none"
+        >
+          <img id="tripAnimation" src={TripAnimation} alt="Car Animation" />
+        </MovingComponent>
         <div id="tripTypeSelection">
           <div id="tripInputContainer">
             <MovingComponent
@@ -181,10 +229,10 @@ function Driver() {
                 before={<AiFillCheckSquare />}
                 type="primary"
                 size="medium"
-                onPress={event => {
+                onPress={() => {
                   getOriginCoords(),
                   getDestCoords(),
-                  calculateDistanceBetweenOriginAndDest(originLat, originLong, destLat, destLong),
+                  calculateDistanceBetweenOriginAndDest(),
                   createTrip()
                 }}
               >

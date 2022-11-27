@@ -8,10 +8,9 @@ function ViewTrips() {
   var tripIds = []; // Store the whole trip object so that we have 
   function getTrips() {
     axios.get("http://localhost:8080/api/v1/rider/rides").then((response) => {
+      console.log(response);
       Object.keys(response.data).forEach(trip => {
-        if(!tripIds.includes(trip)){
-          tripIds.push(response.data[trip]);
-        }
+        tripIds.push(response.data[trip]);
       });
       console.log(tripIds);
     });
@@ -25,11 +24,24 @@ function ViewTrips() {
       document.getElementById("allTripsContainer").appendChild(newTripContainer);
     }
   }
+  function populateTripContainers(tripsList){
+    //tripsList holds the data for each trip
+    const parentObject = document.getElementsByClassName("tripContainer");
+    [...parentObject].forEach((parent, i) =>{
+      const tripIdContainer = document.createElement("div");
+      tripIdContainer.className = "tripInfoContainer";
+      tripIdContainer.innerHTML = `Trip ID: ${tripsList[i].id}`
+      parent.appendChild(tripIdContainer);
+    })
+  }
   window.onload = function(){
     getTrips();
     setTimeout(function(){
       createTripContainers(tripIds);
     }, 500);
+    setTimeout(function(){
+      populateTripContainers(tripIds);
+    },1000);
   }
   //TODO: Create a function that populates each trip container with its respective trip
   return (
