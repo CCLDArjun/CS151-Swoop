@@ -33,7 +33,7 @@ function Driver() {
     if (distanceRequestStatus === 1) { // only creates the trip if the API request for the distance matrix for the trip was successful
       axios
         .get(
-          `http://localhost:8080/api/v1/rider/addRide?email=${userEmail}&start=${formattedOrigin}&end=${formattedDestination}&distance=${totalDistance}`
+          `http://localhost:8080/api/v1/rider/addRide?email=${userEmail}&start=${formattedOrigin}&end=${formattedDestination}&distance=${totalDistance}&startLat=${originLat}&startLong=${originLong}&endLat=${destLat}&endLong=${destLong}`
         )
         .then((response) => {
           console.log(response);
