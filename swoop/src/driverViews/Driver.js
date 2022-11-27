@@ -229,7 +229,8 @@ function Driver() {
                 before={<AiFillCheckSquare />}
                 type="primary"
                 size="medium"
-                onPress={() => {
+
+                onPress={event => {
                   getOriginCoords(),
                   getDestCoords(),
                   calculateDistanceBetweenOriginAndDest(),
