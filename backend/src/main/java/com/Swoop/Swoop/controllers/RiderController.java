@@ -23,7 +23,8 @@ public class RiderController {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/addRide")
     public void addRide(@RequestParam String email, @RequestParam String start,
-							@RequestParam String end, @RequestParam float distance, @RequestParam float startLat, @RequestParam float startLong,
+							@RequestParam String end, @RequestParam float distance, 
+							@RequestParam float startLat, @RequestParam float startLong,
                             @RequestParam float endLat, @RequestParam float endLong) {
 		User u = userService.getUserByEmail(email).get();
 		userService.addRide(u, start, end, distance, startLat, startLong, endLat, endLong);
@@ -33,5 +34,11 @@ public class RiderController {
     @GetMapping("/rides")
     public Map<Integer, Ride> getRides() {
 		return userService.getRides();
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getRides")
+    public Map<Integer, Ride> getRides(@RequestParam float startLat, @RequestParam float startLong) {
+		return userService.getRides(startLat, startLong);
     }
 }

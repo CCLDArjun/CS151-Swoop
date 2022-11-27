@@ -52,4 +52,8 @@ public class SwoopService {
 	public void finishRide(String email) {
 		controller.finishRide(controller.selectUserByEmail(email).get());
 	}
+
+	public Map<Integer, Ride> getRides(float startLat, float startLong) {
+		return controller.getRides(startLat, startLong);
+	}
 }
