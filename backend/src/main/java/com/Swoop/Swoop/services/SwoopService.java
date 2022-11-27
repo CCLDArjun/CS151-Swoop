@@ -37,8 +37,8 @@ public class SwoopService {
         return controller.updateUserByEmail(email,user);
     }
 
-	public void addRide(User user, String start, String end, float distance) {
-		controller.addRide(user, start, end, distance);
+	public void addRide(User user, String start, String end, float distance, float startLat, float startLong, float endLat, float endLong) {
+		controller.addRide(user, start, end, distance, startLat, startLong, endLat, endLong);
 	}
 
 	public void joinRide(User user, int rideID) {

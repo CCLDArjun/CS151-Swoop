@@ -17,8 +17,8 @@ public class UserDataAccessService implements SwoopDao {
     }
 
 	@Override
-	public void addRide(User user, String start, String end, float distance) {
-		Ride r = new Ride(start, end, distance);
+	public void addRide(User user, String start, String end, float distance, float startLat, float startLong, float endLat, float endLong) {
+		Ride r = new Ride(start, end, distance, startLat, startLong,  endLat, endLong);
 		user.addRide(r);
 		DB.addRide(r);
 	}
