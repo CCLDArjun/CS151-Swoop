@@ -22,11 +22,6 @@ export function LoginForm(props) {
   function getUserInput(){
     inputEmail = document.getElementById('emailLoginField').value;
     inputPassword = document.getElementById('passwordLoginField').value;
-    // if(userMap.has(userEmail) && userPassword === userMap.get(userEmail).password){ // successful Login
-    //   navigate("/home");
-    // }else{
-    //   alert('Invalid username or password inputted.');
-    // }
   }
   async function getUser(email) {
     try {
@@ -47,13 +42,14 @@ export function LoginForm(props) {
       return result;
     } catch (err) {
       console.log(err);
-      alert('There was an error retrieving account information.')
     }
   }
   function verifyLogin(){
     if(inputEmail === retrievedEmail && inputPassword === retrievedPassword){ // successful login
         navigate('/home');
-    }else{
+    }else if(inputEmail !== retrievedEmail){
+      alert('That account was not found in our database.');
+    } else{
       alert('Password was incorrect.')
     }
   }

@@ -39,9 +39,6 @@ function Home() {
     },
   };
   return (
-    // <AnimatePresence>
-    //     <Component key={router.route} {...pageProps} />
-    // </AnimatePresence>\
     <div class="container">
       <Helmet>
         <meta charSet="utf-8" />
@@ -130,7 +127,7 @@ function Home() {
                       <MovingComponent
                         type="fadeInFromRight"
                         duration="2000ms"
-                        delay="1.2s"
+                        delay="1s"
                         direction="normal"
                         timing="ease-in"
                         iteration="1"

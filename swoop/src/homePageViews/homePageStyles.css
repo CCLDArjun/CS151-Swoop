@@ -9,7 +9,7 @@
   height: 500px;
   top: 30%;
   left: 15%;
-  bottom: 50%;
+  bottom: 50px;
   border-radius: 25px;
   background-color: #E9DAC4;
   visibility: hidden;
@@ -20,7 +20,7 @@
   height: 500px;
   top: 30%;
   left: 55%;
-  bottom: 495px;
+  bottom: 550px;
   border-radius: 25px;
   background-color: #E9DAC4;
   visibility: hidden;
@@ -73,8 +73,8 @@
   background: rgba(204, 204, 204, 0.5);
   width: 700px;
   height: fit-content;
-  margin-top: 150px;
-  margin-left: 550px;
+  margin-top: 120px;
+  margin-left: 430px;
 
   bottom: 100px;
   position: relative;

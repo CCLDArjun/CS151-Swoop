@@ -9,7 +9,6 @@ import {
 } from "./common";
 import { Marginer } from "../marginer";
 import { AccountContext } from "./accountContext";
-import {userMap} from "./index";
 import axios from "axios";
 
 export function SignupForm(props) {
@@ -38,41 +37,6 @@ export function SignupForm(props) {
 
   }
 
-  // function setUserAccountInfo(){
-  //   var name = document.getElementById('signUpNameField').value;
-  //   var email = document.getElementById('signUpEmailField').value;
-  //   var firstPassword = document.getElementById('signUpPasswordField').value;
-  //   var confirmPassword = document.getElementById('signUpConfirmPasswordField').value;
-  //   var finalPassword;
-  //   if(firstPassword === confirmPassword && !userMap.has(email)){ // successful account creation
-  //     finalPassword = confirmPassword;
-  //     currentUser = new User(name, email, finalPassword);
-  //     switchToSignin();
-  //     return currentUser;
-  //   } else if(userMap.has(email)){
-  //     alert('An account with this email already exists.');
-  //   }
-  //   else{
-  //     alert('Passwords did not match.');
-  //   }
-  // }
-  // function getUser(userEmail){
-  //   fetch('http://localhost:8080/api/v1/user/' + userEmail,{
-  //     method: 'GET',
-  //     body: JSON.stringify()
-  //   })
-  // }
-  // function createUser(user) {
-  //   axios.post('http://localhost:8080/api/v1/user',{
-  //     fullName: currentUser.fullName,
-  //     email: currentUser.email,
-  //     password: currentUser.password
-  //   })
-  //   .then((response) => {
-  //     console.log(response);
-  //     console.log(user);
-  //   })
-  // }
 
   return (
     <BoxContainer>
