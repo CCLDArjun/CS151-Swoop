@@ -24,5 +24,6 @@
 .tripInfoContainer{
     width: fit-content;
     height: fit-content;
-    padding-left: 50px;
+    padding-top: 25px;
+    padding-left: 100px;
 }

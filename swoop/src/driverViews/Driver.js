@@ -22,14 +22,8 @@ function Driver() {
   const [totalDistance, setTotalDistance] = useState(0); // in miles
   const [distanceRequestStatus, setDistanceRequestStatus] = useState(0);
   function createTrip() {
-    var formattedOrigin = origin
-      .substring(0, origin.indexOf(","))
-      .toLowerCase()
-      .replaceAll(" ", "");
-    var formattedDestination = destination
-      .substring(0, destination.indexOf(","))
-      .toLowerCase()
-      .replaceAll(" ", "");
+    var formattedOrigin = origin.replaceAll(" ", "-");
+    var formattedDestination = destination.replaceAll(" ", "-");
     if (distanceRequestStatus === 1) { // only creates the trip if the API request for the distance matrix for the trip was successful
       axios
         .get(
