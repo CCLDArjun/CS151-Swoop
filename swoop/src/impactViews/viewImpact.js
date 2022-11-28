@@ -1,4 +1,5 @@
 /* App.js */
+import axios from "axios";
 import React from "react";
 import { Component } from "react";
 import CanvasJSReact from "./canvasjs-3.7.2/canvasjs.react";
@@ -8,8 +9,12 @@ import { Helmet } from "react-helmet";
 //var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-class viewImpact extends Component {
-  render() {
+function viewImpact(){
+  function getUser(){
+    axios.get('http://localhost:8080/api/v1/user/' + localStorage.getItem("email").replace('"', '')).then((response) => {
+      console.log(response);
+    })
+  }
     const options = {
       animationEnabled: true,
       exportEnabled: true,
@@ -107,6 +112,9 @@ class viewImpact extends Component {
         },
       ],
     };
+    window.onload = function (){
+      getUser();
+    }
     return (
       <div className="container">
         <Helmet>
@@ -133,7 +141,6 @@ class viewImpact extends Component {
       </div>
     );
   }
-}
 
 export default viewImpact;
 //module.exports = viewImpact;
