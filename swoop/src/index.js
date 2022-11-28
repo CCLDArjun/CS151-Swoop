@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,9 +7,10 @@ import Home from "./homePageViews/HomePage";
 import Rider from "./riderViews/Rider";
 import OurMission from './ourMissionViews/ourMission';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Driver from "./driverViews/Driver";
 import ViewProfile from "./viewProfileViews/ViewProfile";
+import ViewImpact from './impactViews/viewImpact';
+import ViewTrips from "./viewTripsViews/viewTrips";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -21,6 +22,9 @@ root.render(
         <Route path='/ourMission' element = {<OurMission/>}/>
         <Route path='driver' element = {<Driver/>}/>
         <Route path='viewProfile' element = {<ViewProfile/>}/>
+        <Route path='viewImpact' element = {<ViewImpact/>}/>
+        <Route path='driver/viewTrips' element = {<ViewTrips/>}/>
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

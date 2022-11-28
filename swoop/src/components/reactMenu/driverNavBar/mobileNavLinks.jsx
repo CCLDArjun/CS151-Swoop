@@ -57,10 +57,10 @@ export function MobileNavLinks(props) {
             <Link href="/ourMission">Our Mission</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="/rider/setCarbonGoals">View Planned Trips</Link>
+            <Link href="/rider/setCarbonGoals">View Trips</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="/rider/viewImpact">View Carpool Requests</Link>
+            <Link href="/driver">Plan Trip</Link>
           </LinkItem>
           <Marginer />
           <Accessibility />

@@ -1,7 +1,8 @@
 package com.Swoop.Swoop.controllers;
 
+import com.Swoop.Swoop.Database;
 import com.Swoop.Swoop.models.User;
-import com.Swoop.Swoop.services.UserService;
+import com.Swoop.Swoop.services.SwoopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +12,9 @@ import java.util.Optional;
 @RequestMapping("api/v1/user")
 @RestController
 public class UserController {
-    private final UserService userService;
+    private final SwoopService userService;
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(SwoopService userService) {
         this.userService = userService;
     }
     @CrossOrigin(origins = "http://localhost:3000")
@@ -23,7 +24,7 @@ public class UserController {
     }
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
-    public Map<String, User> getAllUsers(){
+    public Database getAllUsers(){
         return userService.getAllUsers();
     }
     @CrossOrigin(origins = "http://localhost:3000")
@@ -40,5 +41,17 @@ public class UserController {
     @PutMapping(path = "{email}")
     public void updateUser(@PathVariable("email") String email, @RequestBody User userToUpdate){
         userService.updateUser(email,userToUpdate);
+    }
+
+	@CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/finishRide")
+    public void finishRide(@RequestParam String email){
+		userService.finishRide(email);
+    }
+
+	@CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/joinRide")
+    public void joinRide(@RequestParam String email, int rideID){
+		userService.joinRide(userService.getUserByEmail(email).get(), rideID);
     }
 }

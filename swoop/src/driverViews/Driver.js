@@ -8,9 +8,105 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import { AiFillCheckSquare } from "react-icons/ai";
 import TripAnimation from "../components/images/bookTripAnimation.gif";
+import { useState } from "react";
+import axios from "axios";
+
 function Driver() {
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
+  const userEmail = localStorage.getItem("email").replaceAll('"', "");
+  const [originLat, setOriginLat] = useState("");
+  const [originLong, setOriginLong] = useState("");
+  const [destLat, setDestLat] = useState("");
+  const [destLong, setDestLong] = useState("");
+  const [totalDistance, setTotalDistance] = useState(0); // in miles
+  const [distanceRequestStatus, setDistanceRequestStatus] = useState(0);
+  function createTrip() {
+    var formattedOrigin = origin.replaceAll(" ", "-");
+    var formattedDestination = destination.replaceAll(" ", "-");
+    if (distanceRequestStatus === 1) { // only creates the trip if the API request for the distance matrix for the trip was successful
+      axios
+        .get(
+          `http://localhost:8080/api/v1/rider/addRide?email=${userEmail}&start=${formattedOrigin}&end=${formattedDestination}&distance=${totalDistance}&startLat=${originLat}&startLong=${originLong}&endLat=${destLat}&endLong=${destLong}`
+        )
+        .then((response) => {
+          console.log(response);
+        });
+        alert('Trip creation was successful.');
+    } else{
+      console.log(distanceRequestStatus);
+    }
+  }
+  function getOriginCoords() {
+    var originCity = origin.substring(0, origin.indexOf(","));
+    originCity = originCity.replaceAll(" ", "-");
+    var originState = origin.substring(origin.indexOf(",") + 1, origin.length);
+    if (originCity !== "" && originState !== "") {
+      axios
+        .get(
+          `http://dev.virtualearth.net/REST/v1/Locations/US/${originState}/-/${originCity}/-?&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`
+        )
+        .then((response) => {
+          console.log(response);
+          setOriginLat(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[0]
+          );
+          setOriginLong(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[1]
+          );
+        });
+    }
+  }
+  function getDestCoords() {
+    var destCity = destination.substring(0, destination.indexOf(","));
+    destCity = destCity.replaceAll(" ", "-");
+    var destState = destination.substring(
+      destination.indexOf(",") + 1,
+      destination.length
+    );
+    if (destCity !== "" && destState != "") {
+      axios
+        .get(
+          `http://dev.virtualearth.net/REST/v1/Locations/US/${destState}/-/${destCity}/-?&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`
+        )
+        .then((response) => {
+          console.log(response);
+          setDestLat(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[0]
+          );
+          setDestLong(
+            response.data.resourceSets[0].resources[0].geocodePoints[0]
+              .coordinates[1]
+          );
+        });
+    }
+  }
+  function calculateDistanceBetweenOriginAndDest() {
+      axios
+      .get(
+        `https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins=${originLat},${originLong}&destinations=${destLat},${destLong}&travelMode=driving&key=AgAaeJSjg0Ofneo6lx_d32lRx0tLue0-yD_xQ4b0YnDzibcjmNkkOvGoWbjslbJR`
+      )
+      .then((response) => {
+        console.log(response);
+        setTotalDistance(
+          convertKilometersToMiles(
+            response.data.resourceSets[0].resources[0].results[0].travelDistance
+          )
+        );
+        console.log("SUCCESSFUL DISTNACE MATRIX");
+        setDistanceRequestStatus(1);
+      });
+  }
+  function convertKilometersToMiles(kmVal) {
+    const conversionFactor = 0.621371;
+    const miles = kmVal * conversionFactor;
+    return miles;
+  }
   return (
-    <div id="container" >
+    <div id="container">
       <head>
         <link
           rel="stylesheet"
@@ -39,20 +135,16 @@ function Driver() {
           </MovingComponent>
         </div>
         <MovingComponent
-                  type="fadeInFromLeft"
-                  duration="2000ms"
-                  delay="0s"
-                  direction="normal"
-                  timing="ease-in"
-                  iteration="1"
-                  fillMode="none"
-                >
-                  <img
-                    id="tripAnimation"
-                    src={TripAnimation}
-                    alt="Car Animation"
-                  />
-                </MovingComponent>
+          type="fadeInFromLeft"
+          duration="2000ms"
+          delay="0s"
+          direction="normal"
+          timing="ease-in"
+          iteration="1"
+          fillMode="none"
+        >
+          <img id="tripAnimation" src={TripAnimation} alt="Car Animation" />
+        </MovingComponent>
         <div id="tripTypeSelection">
           <div id="tripInputContainer">
             <MovingComponent
@@ -80,6 +172,7 @@ function Driver() {
                     id="tripOrigin"
                     type="text"
                     placeholder="From?"
+                    onChange={(e) => setOrigin(e.target.value)}
                   />
                 </MovingComponent>
               </div>
@@ -109,6 +202,7 @@ function Driver() {
                     type="text"
                     placeholder="Where to?"
                     class="input-field"
+                    onChange={(e) => setDestination(e.target.value)}
                   />
                 </MovingComponent>
               </div>
@@ -129,6 +223,13 @@ function Driver() {
                 before={<AiFillCheckSquare />}
                 type="primary"
                 size="medium"
+
+                onPress={event => {
+                  getOriginCoords(),
+                  getDestCoords(),
+                  calculateDistanceBetweenOriginAndDest(),
+                  createTrip()
+                }}
               >
                 Plan Trip
               </AwesomeButton>
