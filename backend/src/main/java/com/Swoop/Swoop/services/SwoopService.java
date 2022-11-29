@@ -40,7 +40,6 @@ public class SwoopService {
 	public void addRide(User user, String start, String end, float distance, float startLat, float startLong, float endLat, float endLong) {
 		controller.addRide(user, start, end, distance, startLat, startLong, endLat, endLong);
 	}
-
 	public void joinRide(User user, int rideID) {
 		controller.joinRide(user, rideID);
 	}
@@ -56,4 +55,5 @@ public class SwoopService {
 	public Map<Integer, Ride> getRides(float startLat, float startLong) {
 		return controller.getRides(startLat, startLong);
 	}
+
 }

@@ -39,9 +39,6 @@ function Home() {
     },
   };
   return (
-    // <AnimatePresence>
-    //     <Component key={router.route} {...pageProps} />
-    // </AnimatePresence>\
     <div class="container">
       <Helmet>
         <meta charSet="utf-8" />

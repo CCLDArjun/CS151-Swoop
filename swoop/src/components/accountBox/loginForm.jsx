@@ -50,6 +50,5 @@ export function LoginForm(props) {
         </BoldLink>
       </MutedLink>
     </BoxContainer>
-
   );
 }
