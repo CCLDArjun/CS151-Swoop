@@ -21,7 +21,6 @@ public class User {
 		this.fullName = fullName;
 		this.email = email;
 		this.password = password;
-
 	}
 
 	public void addRide(Ride r) {
@@ -65,4 +64,6 @@ public class User {
 	public void finishRide() {
 		inRide = false;
 	}
+
+
 }
