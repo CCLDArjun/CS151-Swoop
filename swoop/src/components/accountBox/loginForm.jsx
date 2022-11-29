@@ -22,6 +22,9 @@ export function LoginForm(props) {
       axios.get('http://localhost:8080/api/v1/user/' + email)
       .then(function (response){
         if(inputEmail === response.data.email && inputPassword === response.data.password){
+          if(localStorage.getItem("email") === ""){
+            localStorage.setItem("email", email);
+          }
           navigate('/home');
         }else{
           alert('Password was incorrect.')

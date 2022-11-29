@@ -36,7 +36,7 @@ export function SignupForm(props) {
   }
   const [currentUserEmail, setUserEmail] = useState(() => {
     const savedEmail = localStorage.getItem("email");
-    const initialValue = JSON.parse(savedEmail);
+    const initialValue = savedEmail;
     return initialValue || "";
   });
   useEffect(() => {
