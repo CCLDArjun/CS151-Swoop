@@ -6,6 +6,7 @@ import CanvasJSReact from "./canvasjs-3.7.2/canvasjs.react";
 import { Navbar } from "../components/reactMenu/navbar";
 import "./viewImpact.css";
 import { Helmet } from "react-helmet";
+import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 //var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -13,21 +14,50 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 function viewImpact() {
   const [user, setUser] = useState("");
   const [allRides, setRide] = useState("");
+  // const [costPoints, setCostPoints] = useState("");
+  // const [co2Points, setCO2Points] = useState("");
+  var co2Points = []
+  var costPoints = []
+  graphDataSetup(co2Points, costPoints);
 
-  function getUser() { // { crossDomain: true, headers: {"Access-Control-Allow-Origin": "*"}}
-    axios.get('http://localhost:8080/api/v1/user/' + localStorage.getItem("email").replaceAll('"',''), ).then((response) => {
-      setUser(response.data);
-    })
+  async function getUser() { // { crossDomain: true, headers: {"Access-Control-Allow-Origin": "*"}}
+    let res = await axios.get('http://localhost:8080/api/v1/user/' + localStorage.getItem("email").replaceAll('"', ''),);
+    res = await axios.get('http://localhost:8080/api/v1/user/' + localStorage.getItem("email").replaceAll('"', ''),)
+    setUser(res.data);
+    // console.log(res.data);
+    // axios.get('http://localhost:8080/api/v1/user/' + localStorage.getItem("email").replaceAll('"',''), ).then((response) => {
+    //   setUser(response.data);
+    //   console.log("from getUser: " + response.data);
+    // })
   }
 
-  function getRides() { // { crossDomain: true, headers: {"Access-Control-Allow-Origin": "*"}}
-    axios.get('http://localhost:8080/api/v1/rider/rides').then((response) => {
-      setRide(response.data);
-    })
+  async function getRides() { // { crossDomain: true, headers: {"Access-Control-Allow-Origin": "*"}}
+    let res = await axios.get('http://localhost:8080/api/v1/rider/rides');
+    setRide(res.data);
+    // console.log(res.data);
+    // axios.get('http://localhost:8080/api/v1/rider/rides').then((response) => {
+    //   setRide(response.data);
+    // })
   }
 
-  console.log(user);
-  console.log(allRides["2"]);
+  function graphDataSetup(costPoints_, co2Points_) {
+    // console.log(user.rides);
+    // console.log(allRides["2"]);
+
+    if (user === "" || allRides === "")
+      return;
+
+    for (var i = 0; i < user.rides.length; i++) {
+      costPoints_.push({ x: i+1, y: (allRides[user.rides[i]].distance / 30) * 5})
+      co2Points_.push({ x: i+1, y: allRides[user.rides[i]].CO2 })
+    }
+  }
+
+  
+
+  console.log(costPoints);
+  console.log(co2Points);
+
   const options = {
     animationEnabled: true,
     exportEnabled: true,
@@ -48,31 +78,7 @@ function viewImpact() {
       {
         type: "line",
         toolTipContent: "Week {x}: ${y}",
-        dataPoints: [
-          { x: 1, y: 64 },
-          { x: 2, y: 61 },
-          { x: 3, y: 64 },
-          { x: 4, y: 62 },
-          { x: 5, y: 64 },
-          { x: 6, y: 60 },
-          { x: 7, y: 58 },
-          { x: 8, y: 59 },
-          { x: 9, y: 53 },
-          { x: 10, y: 54 },
-          { x: 11, y: 61 },
-          { x: 12, y: 60 },
-          { x: 13, y: 55 },
-          { x: 14, y: 60 },
-          { x: 15, y: 56 },
-          { x: 16, y: 60 },
-          { x: 17, y: 59.5 },
-          { x: 18, y: 63 },
-          { x: 19, y: 58 },
-          { x: 20, y: 54 },
-          { x: 21, y: 59 },
-          { x: 22, y: 64 },
-          { x: 23, y: 59 },
-        ],
+        dataPoints: costPoints
       },
     ],
   };
@@ -97,37 +103,20 @@ function viewImpact() {
       {
         type: "line",
         toolTipContent: "Week {x}: {y} tons of CO2 saved",
-        dataPoints: [
-          { x: 1, y: 64 },
-          { x: 2, y: 61 },
-          { x: 3, y: 64 },
-          { x: 4, y: 62 },
-          { x: 5, y: 64 },
-          { x: 6, y: 60 },
-          { x: 7, y: 58 },
-          { x: 8, y: 59 },
-          { x: 9, y: 53 },
-          { x: 10, y: 54 },
-          { x: 11, y: 61 },
-          { x: 12, y: 60 },
-          { x: 13, y: 55 },
-          { x: 14, y: 60 },
-          { x: 15, y: 56 },
-          { x: 16, y: 60 },
-          { x: 17, y: 59.5 },
-          { x: 18, y: 63 },
-          { x: 19, y: 58 },
-          { x: 20, y: 54 },
-          { x: 21, y: 59 },
-          { x: 22, y: 64 },
-          { x: 23, y: 59 },
-        ],
+        dataPoints: co2Points,
       },
     ],
   };
   window.onload = function () {
     getUser();
     getRides();
+  //   // setTimeout(function () { getUser() }, 1000);
+  //   // setTimeout(function () { getRides() }, 1000);
+  //   // setTimeout(function () { graphDataSetup() }, 1000);
+  //   getUser();
+  //   getRides();
+  //   await sleep(1000)
+  //   graphDataSetup();
   }
   return (
     <div className="container">
