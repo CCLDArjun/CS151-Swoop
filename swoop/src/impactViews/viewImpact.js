@@ -19,6 +19,7 @@ function viewImpact() {
   var co2Points = []
   var costPoints = []
   graphDataSetup(co2Points, costPoints);
+  
 
   async function getUser() { // { crossDomain: true, headers: {"Access-Control-Allow-Origin": "*"}}
     let res = await axios.get('http://localhost:8080/api/v1/user/' + localStorage.getItem("email").replaceAll('"', ''),);
@@ -52,7 +53,26 @@ function viewImpact() {
       co2Points_.push({ x: i+1, y: allRides[user.rides[i]].CO2 })
     }
   }
+  
+  
+  var values = piChartSetup();
+  var currentProgress = values[0], remainingGoal = values[1];
 
+  function piChartSetup() {
+    if (user === "" || allRides === "")
+      return [0, 0];
+    
+    const goal = user.carbonGoal;
+    var completed = 0.0;
+
+    for (var i=0; i<user.rides.length; i++) {
+      completed += allRides[user.rides[i]].CO2;
+    }
+    if (completed < goal) {
+      return [(completed / goal) * 100, 100 * (1 - (completed / goal))];
+    }
+    return [100, 0]
+  }
   
 
   console.log(costPoints);
@@ -107,6 +127,32 @@ function viewImpact() {
       },
     ],
   };
+
+  const piChart = {
+    animationEnabled: true,
+    exportEnabled: true,
+    title: {
+      text: "Carbon Goal Progress"
+    },
+    subtitles: [{
+      text: "CO2(lbs)",
+      verticalAlign: "center",
+      fontSize: 24,
+      dockInsidePlotArea: true
+    }],
+    data: [{
+      type: "doughnut",
+      showInLegend: true,
+      indexLabel: "{name}: {y}",
+      yValueFormatString: "#,###'%'",
+      dataPoints: [
+        { name: "Current Progress", y: currentProgress },
+        { name: "Remaining Goal", y: remainingGoal },
+      ],
+    },
+    ],
+  };
+
   window.onload = function () {
     getUser();
     getRides();
@@ -138,6 +184,12 @@ function viewImpact() {
       <div id="co2GraphContainer">
         <CanvasJSChart
           options={co2}
+        /* onRef={ref => this.chart = ref} */
+        />
+      </div>
+      <div id="progressGraphContainer">
+        <CanvasJSChart
+          options={piChart}
         /* onRef={ref => this.chart = ref} */
         />
       </div>

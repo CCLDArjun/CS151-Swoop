@@ -1,4 +1,4 @@
-#gasGraphContainer{
+#gasGraphContainer {
     /* position: relative;
     width: 500px;
     height: 500px;
@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     user-select: none;
-
     background-color: black; */
     width: 700px;
     height: fit-content;
@@ -17,7 +16,8 @@
     position: relative;
     left: 150px;
 }
-#co2GraphContainer{
+
+#co2GraphContainer {
     width: 700px;
     height: fit-content;
     background-color: white;
@@ -28,7 +28,20 @@
     bottom: 500px;
     left: 950px;
 }
-.container{
+
+#progressGraphContainer {
+    width: 700px;
+    height: fit-content;
+    background-color: white;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 25px;
+    position: relative;
+    bottom: 550px;
+    left: 150px;
+}
+
+.container {
     height: 100%;
     width: 100%;
     overflow-y: scroll;
