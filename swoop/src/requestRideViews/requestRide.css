@@ -1,0 +1,151 @@
+#container{
+    height: 100%;
+    width: 100%;
+}
+#tripBox{
+    position: relative;
+    top: 10%;
+    background-color: white;
+    width: 800px;
+    left: 24%;
+    height: 500px;
+    border-radius: 25px;
+    background-color: #E9DAC4;
+
+}
+#tripBoxTitle{
+    position: relative;
+    text-align: center;
+    font-size: 45px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+#tripTypeSelection{
+    width: fit-content;
+    height: fit-content;
+    font-size: 18px;
+}
+#dropdown-basic-button{
+    font-size: 18px;
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+}
+#tripOrigin{
+    position: relative;
+    left: 95px;
+    top: 250px;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 250px;
+    padding-left: 28px;
+    padding-top: 2px;
+}
+#tripDestination{
+    border-radius: 25px;
+    position: relative;
+    left: 415px;
+    top: 200px;
+    width: 250px;
+    font-size: 18px;
+    padding-left: 30px;
+    padding-top: -5px;
+}
+#submitButton{
+    position: relative;
+    top: 220px;
+    left: 320px;
+  }
+
+#rideLoadingText{
+    left: 270px;
+    top: 120px;
+    position: absolute;
+    width: 100%;
+    font-size: 30px;
+    visibility: hidden;
+}
+
+#rideLoadingAnimation{
+    right: 340px;
+    bottom: 50px;
+    position: relative;
+    width: 400px;
+    border-radius: 25px;
+    visibility: hidden;
+}
+
+#loadTripBox{
+    position: absolute;
+    top: 160px;
+    background-color: white;
+    width: 800px;
+    left: 445px;
+    height: 560px;
+    border-radius: 25px;
+    background-color: #E9DAC4;
+    visibility: hidden;
+    
+}
+
+.input-icons i {
+    position: relative;
+    left: 440px;
+    top: 200px;
+    z-index: 9;
+}
+.originIcon i {
+    position: relative;
+    left: 120px;
+    top: 250px;
+    z-index: 9;
+}
+.originIcon{
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+    
+}
+  
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+  
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+#tripAnimation{
+    left: 250px;
+    position: absolute;
+    width: 300px;
+    border-radius: 25px;
+    
+}
+
+#matchedTripBox{
+    position: absolute;
+    top: 160px;
+    background-color: white;
+    width: 800px;
+    left: 445px;
+    height: 560px;
+    border-radius: 25px;
+    background-color: #E9DAC4;
+    visibility: hidden;
+}
+
+#matchedRideText{
+    left: 270px;
+    top: 120px;
+    position: absolute;
+    width: 100%;
+    font-size: 30px;
+    visibility: hidden;
+}
