@@ -17,11 +17,12 @@ public class User {
 	public ArrayList<Integer> rides = new ArrayList<>();
 	private UserType currentUserType;
 	public boolean inRide = false;
+	public float carbonGoal;
 	public User(@JsonProperty("fullName") String fullName, @JsonProperty("email")String email, @JsonProperty("password")String password) {
 		this.fullName = fullName;
 		this.email = email;
 		this.password = password;
-
+		carbonGoal = 0;
 	}
 
 	public void addRide(Ride r) {
@@ -64,5 +65,9 @@ public class User {
 
 	public void finishRide() {
 		inRide = false;
+	}
+
+	public void setGoal(float carbonGoal) {
+		this.carbonGoal = carbonGoal;
 	}
 }

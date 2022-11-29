@@ -22,6 +22,13 @@ public class UserController {
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/setGoal")
+    public void addUser(@RequestParam String email, @RequestParam float carbonGoal){
+		userService.getUserByEmail(email).get().setGoal(carbonGoal);
+    }
+
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping
     public Database getAllUsers(){
@@ -54,4 +61,6 @@ public class UserController {
     public void joinRide(@RequestParam String email, int rideID){
 		userService.joinRide(userService.getUserByEmail(email).get(), rideID);
     }
+
+
 }
