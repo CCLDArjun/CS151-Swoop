@@ -126,11 +126,11 @@ function Home() {
               <div id="riderDescription">
                 <div class="listContainer">
                   <StyleRoot>
-                    <div id="riderGifContainer" style={styles.bounce}>
+                    <div id="riderGifContainer">
                       <MovingComponent
                         type="fadeInFromRight"
                         duration="2000ms"
-                        delay="1.2s"
+                        delay="1s"
                         direction="normal"
                         timing="ease-in"
                         iteration="1"

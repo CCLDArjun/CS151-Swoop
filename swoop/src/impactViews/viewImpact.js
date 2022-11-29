@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 //var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
+
 function viewImpact() {
   const [user, setUser] = useState("");
   const [allRides, setRide] = useState("");
@@ -154,6 +155,7 @@ function viewImpact() {
     </div>
   );
 }
+
 
 export default viewImpact;
 //module.exports = viewImpact;
