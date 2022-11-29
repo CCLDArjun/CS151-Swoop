@@ -64,6 +64,22 @@ function ViewTrips() {
       co2Container.className = "tripInfoContainer";
       co2Container.innerHTML = `Carbon Footprint: ${Math.ceil(tripsList[i].CO2) + ' pounds'}`;
       parent.appendChild(co2Container);
+
+      const ridersContainer = document.createElement("div");
+      ridersContainer.className = "tripInfoContainer";
+      var usersString = "";
+      for(var j = 0; j < tripsList[i].users.length; j++){
+        if(j > 0){
+          usersString  += ", " + tripsList[i].users[j].fullName;
+        } else {
+          usersString  += tripsList[i].users[j].fullName;
+        }
+        
+      }
+
+      ridersContainer.innerHTML = `Trip Occupants: ${usersString}`;
+      parent.appendChild(ridersContainer);
+
     });
   }
 

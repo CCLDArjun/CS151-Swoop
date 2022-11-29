@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar } from "../components/reactMenu/navbar";
+import { ViewProfileNavbar } from "../components/reactMenu/viewProfileNavBar";
 import { Text } from "@react-ui-org/react-ui";
 import styled from "styled-components";
 import "./ViewProfileStyles.css";
@@ -37,7 +37,7 @@ function ViewProfile() {
         <link rel="canonical" href="/home" />
         <meta name="description" content="Swoop View Profile Page" />
       </Helmet>
-      <Navbar />
+      <ViewProfileNavbar/> 
       <MovingComponent
         type="fadeInFromLeft"
         duration="2000ms"
