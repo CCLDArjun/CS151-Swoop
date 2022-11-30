@@ -18,7 +18,7 @@ function viewImpact() {
   // const [co2Points, setCO2Points] = useState("");
   var co2Points = []
   var costPoints = []
-  graphDataSetup(co2Points, costPoints);
+  graphDataSetup(costPoints, co2Points);
   
 
   async function getUser() { // { crossDomain: true, headers: {"Access-Control-Allow-Origin": "*"}}
@@ -49,8 +49,8 @@ function viewImpact() {
       return;
 
     for (var i = 0; i < user.rides.length; i++) {
-      costPoints_.push({ x: i+1, y: (allRides[user.rides[i]].distance / 30) * 5})
-      co2Points_.push({ x: i+1, y: allRides[user.rides[i]].CO2 })
+      costPoints_.push({ x: allRides[user.rides[i]].id, y: (allRides[user.rides[i]].distance / 30) * 5})
+      co2Points_.push({ x: allRides[user.rides[i]].id, y: allRides[user.rides[i]].CO2 })
     }
   }
   
@@ -83,21 +83,21 @@ function viewImpact() {
     exportEnabled: true,
     theme: "light2", // "light1", "dark1", "dark2"
     title: {
-      text: "Gas cost saved by Trip Date",
+      text: "Gas Cost By Trip",
     },
     axisY: {
       title: "Gas Cost($)",
       prefix: "$",
     },
     axisX: {
-      title: "Trip Date(s)",
+      title: "Trip(s)",
       interval: 2,
-      prefix: "Week ",
+      prefix: "Trip ",
     },
     data: [
       {
         type: "line",
-        toolTipContent: "Week {x}: ${y}",
+        toolTipContent: "Trip ID {x}: ${y}",
         dataPoints: costPoints
       },
     ],
@@ -107,22 +107,22 @@ function viewImpact() {
     exportEnabled: true,
     theme: "light2", // "light1", "dark1", "dark2"
     title: {
-      text: "CO2 saved by Trip Date",
+      text: "CO2 Cost By Trip",
     },
     axisY: {
       title: "CO2",
       suffix: " pounds",
     },
     axisX: {
-      title: "Trip Date(s)",
+      title: "Trip(s)",
       interval: 2,
-      prefix: "Week ",
+      prefix: "Trip ",
     },
 
     data: [
       {
         type: "line",
-        toolTipContent: "Week {x}: {y} tons of CO2 saved",
+        toolTipContent: "Trip ID {x}: {y} pounds of CO2 were exherted",
         dataPoints: co2Points,
       },
     ],
