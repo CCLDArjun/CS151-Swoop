@@ -1,6 +1,6 @@
 # Swoop
 
-**Team #9**
+**Group #9**
 
 **Group Members:** Oscar Diaz Vega, Arjun Bemarkar, and Shreyass Prem Sankar 
 
