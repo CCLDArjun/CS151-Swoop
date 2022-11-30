@@ -22,8 +22,11 @@
     font-weight: 500;
 }
 .tripInfoContainer{
-    width: fit-content;
+    width: 400px;
     height: fit-content;
     padding-top: 25px;
-    padding-left: 100px;
+    /* padding-left: 80px; */
+    margin-left: -90px;
+
+    text-overflow: clip;
 }

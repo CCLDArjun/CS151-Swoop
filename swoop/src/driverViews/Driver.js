@@ -15,16 +15,16 @@ function Driver() {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const userEmail = localStorage.getItem("email").replaceAll('"', "");
-  const [originLat, setOriginLat] = useState("");
-  const [originLong, setOriginLong] = useState("");
-  const [destLat, setDestLat] = useState("");
-  const [destLong, setDestLong] = useState("");
-  const [totalDistance, setTotalDistance] = useState(0); // in miles
-  const [distanceRequestStatus, setDistanceRequestStatus] = useState(0);
-  function createTrip() {
+  var originLat = "";
+  var originLong = "";
+  var destLat = "";
+  var destLong = "";
+  var totalDistance = 0;
+  var distanceRequestStatus = 0;
+  function createTrip(requestStatus) {
     var formattedOrigin = origin.replaceAll(" ", "-");
     var formattedDestination = destination.replaceAll(" ", "-");
-    if (distanceRequestStatus === 1) { // only creates the trip if the API request for the distance matrix for the trip was successful
+    if (requestStatus !== 0) { // only creates the trip if the API request for the distance matrix for the trip was successful
       axios
         .get(
           `http://localhost:8080/api/v1/rider/addRide?email=${userEmail}&start=${formattedOrigin}&end=${formattedDestination}&distance=${totalDistance}&startLat=${originLat}&startLong=${originLong}&endLat=${destLat}&endLong=${destLong}`
@@ -34,7 +34,7 @@ function Driver() {
         });
         alert('Trip creation was successful.');
     } else{
-      console.log(distanceRequestStatus);
+      console.log(requestStatus);
     }
   }
   function getOriginCoords() {
@@ -48,14 +48,8 @@ function Driver() {
         )
         .then((response) => {
           console.log(response);
-          setOriginLat(
-            response.data.resourceSets[0].resources[0].geocodePoints[0]
-              .coordinates[0]
-          );
-          setOriginLong(
-            response.data.resourceSets[0].resources[0].geocodePoints[0]
-              .coordinates[1]
-          );
+          originLat = response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[0];
+          originLong = response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[1]
         });
     }
   }
@@ -73,14 +67,8 @@ function Driver() {
         )
         .then((response) => {
           console.log(response);
-          setDestLat(
-            response.data.resourceSets[0].resources[0].geocodePoints[0]
-              .coordinates[0]
-          );
-          setDestLong(
-            response.data.resourceSets[0].resources[0].geocodePoints[0]
-              .coordinates[1]
-          );
+          destLat = response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[0];
+          destLong = response.data.resourceSets[0].resources[0].geocodePoints[0].coordinates[1];
         });
     }
   }
@@ -91,13 +79,9 @@ function Driver() {
       )
       .then((response) => {
         console.log(response);
-        setTotalDistance(
-          convertKilometersToMiles(
-            response.data.resourceSets[0].resources[0].results[0].travelDistance
-          )
-        );
+        totalDistance = convertKilometersToMiles(response.data.resourceSets[0].resources[0].results[0].travelDistance);
         console.log("SUCCESSFUL DISTNACE MATRIX");
-        setDistanceRequestStatus(1);
+        distanceRequestStatus = 1;
       });
   }
   function convertKilometersToMiles(kmVal) {
@@ -227,8 +211,15 @@ function Driver() {
                 onPress={event => {
                   getOriginCoords(),
                   getDestCoords(),
-                  calculateDistanceBetweenOriginAndDest(),
-                  createTrip()
+                  setTimeout(() => {
+                    console.log("WAITED 1 SECONDS")
+                    calculateDistanceBetweenOriginAndDest();
+                  }, 1000),
+                  
+                  setTimeout(() => {
+                    console.log("WAITED 2 SECONDS")
+                    createTrip(distanceRequestStatus);
+                  }, 2000)
                 }}
               >
                 Plan Trip

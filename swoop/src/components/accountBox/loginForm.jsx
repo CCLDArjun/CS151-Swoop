@@ -21,12 +21,16 @@ export function LoginForm(props) {
     try{
       axios.get('http://localhost:8080/api/v1/user/' + email)
       .then(function (response){
+        console.log(response);
         if(inputEmail === response.data.email && inputPassword === response.data.password){
           if(localStorage.getItem("email") === ""){
             localStorage.setItem("email", email);
           }
           navigate('/home');
-        }else{
+        }else if(response.data === ""){
+          alert('The account with the inputted email does not exist in our database.');
+        }
+        else{
           alert('Password was incorrect.')
         }
       })
@@ -44,7 +48,10 @@ export function LoginForm(props) {
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
       <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" onClick={() => {getUser(inputEmail)}}>Signin</SubmitButton>
+      <SubmitButton type="submit" onClick={() => {
+  
+        getUser(inputEmail);
+        }}>Signin</SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an account?{" "}

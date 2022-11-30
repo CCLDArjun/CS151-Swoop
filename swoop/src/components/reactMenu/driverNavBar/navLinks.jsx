@@ -13,7 +13,7 @@ const LinksWrapper = styled.ul`
   display: flex;
   height: 100%;
   list-style: none;
-  margin-left: -100px;
+  margin-left: 10px;
 `;
 
 const LinkItem = styled.li`
@@ -48,6 +48,9 @@ export function NavLinks(props) {
         </LinkItem>
         <LinkItem>
           <Link href="/driver/viewTrips">View Trips</Link>
+        </LinkItem>
+        <LinkItem>
+          <Link href="/viewImpact">View Impact</Link>
         </LinkItem>
         <LinkItem>
           <Link href="/driver">Plan Trip</Link>
