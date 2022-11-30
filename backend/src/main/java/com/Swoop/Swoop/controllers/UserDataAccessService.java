@@ -104,5 +104,14 @@ public class UserDataAccessService implements SwoopDao {
 	public float deg2rad(float deg) {
 		return deg * ((float) Math.PI/180);
 	}
+
+	@Override
+	public List<Ride> getUserRides(String email) {
+		List<Ride> ret = new ArrayList<>();
+		for(Integer r: selectUserByEmail(email).get().rides) {
+			ret.add(getRides().get(r));
+		}
+		return ret;
+	}
 }
 
