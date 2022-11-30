@@ -153,9 +153,9 @@
 .tripInfoContainer{
     width: fit-content;
     height: fit-content;
-    padding-top: 25px;
+    margin-top: -15px;
     padding-left: 200px;
-    font-size: 21px;
+    font-size: 25px;
 }
 #matchedTripHeader{
     left: 250px;
