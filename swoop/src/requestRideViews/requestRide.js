@@ -54,7 +54,7 @@ function requestARide() {
           console.log(end);
           distance = Math.ceil(tripList[0].distance);
           console.log(distance);
-          tripCO2 = tripList[0].CO2;
+          tripCO2 = Math.ceil(tripList[0].CO2);
           console.log(tripCO2);
         }
 
