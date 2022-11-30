@@ -9,7 +9,7 @@ function ViewTrips() {
   var tripIds = []; // Store the whole trip object so that we have
   var tripStartAndEndLocations = [];
   function getTrips() {
-    axios.get("http://localhost:8080/api/v1/rider/rides").then((response) => {
+    axios.get(`http://localhost:8080/api/v1/user/getUserRides?email=${userEmail}`).then((response) => {
       console.log(response);
       Object.keys(response.data).forEach((trip) => {
         tripIds.push(response.data[trip]);
@@ -17,7 +17,7 @@ function ViewTrips() {
       console.log(tripIds);
     });
   }
-  function createTripContainers(tripsList) {
+  function createTripContainers(tripsList) {  
     for (var i = 0; i < tripsList.length; i++) {
       const newTripContainer = document.createElement("div");
       newTripContainer.className = "tripContainer";
