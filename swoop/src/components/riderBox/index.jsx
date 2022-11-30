@@ -7,7 +7,7 @@ import { SignupForm } from "./signupForm";
 
 const BoxContainer = styled.div`
   width: 380px;
-  min-height: 550px;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   border-radius: 19px;
@@ -15,7 +15,7 @@ const BoxContainer = styled.div`
   box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
   position: relative;
   overflow: hidden;
-  margin-top: 70px;
+  margin-top: 60px;
 
 `;
 
@@ -36,7 +36,7 @@ const BackDrop = styled(motion.div)`
   position: absolute;
   display: flex;
   flex-direction: column;
-  border-radius: 50%;
+  border-radius: 50%; 
   transform: rotate(60deg);
   top: -290px;
   left: -70px;

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Accessibility } from "./accessibility";
+import { MenuToggle } from "./menuToggle";
 
 const NavLinksContainer = styled.div`
   height: 100%;
@@ -13,22 +15,22 @@ const LinksWrapper = styled.ul`
   display: flex;
   height: 100%;
   list-style: none;
+  background-color: #fff;
+  width: 100%;
+  flex-direction: column;
+  position: fixed;
+  top: 65px;
+  left: 0;
 `;
 
 const LinkItem = styled.li`
-  height: 100%;
+  width: 100%;
   padding: 0 1.1em;
   color: #222;
   font-weight: 500;
-  font-size: 14px;
-  align-items: center;
-  justify-content: center;
+  font-size: 16px;
   display: flex;
-  border-top: 2px solid white;
-  transition: all 220ms ease-in-out;
-  &:hover {
-    border-top: 2px solid #228b22;
-  }
+  margin-bottom: 10px;
 `;
 
 const Link = styled.a`
@@ -38,26 +40,34 @@ const Link = styled.a`
   font-weight: 600;
 `;
 
-export function NavLinks(props) {
+const Marginer = styled.div`
+  height: 2em;
+`;
+
+export function MobileNavLinks(props) {
+  const [isOpen, setOpen] = useState(false);
+
   return (
     <NavLinksContainer>
-      <LinksWrapper>
-      <LinkItem>
+      <MenuToggle isOpen={isOpen} toggle={() => setOpen(!isOpen)} />
+      {isOpen && (
+        <LinksWrapper>
+          <LinkItem>
             <Link href="/ourMission">Our Mission</Link>
           </LinkItem>
           <LinkItem>
             <Link href="/rider/setCarbonGoals">Set Carbon Goals</Link>
           </LinkItem>
           <LinkItem>
-            <Link href="/viewImpact">View Impact</Link>
+            <Link href="/rider/viewImpact">View Impact</Link>
           </LinkItem>
           <LinkItem>
             <Link href="/rider/requestRide">Request A Ride</Link>
           </LinkItem>
-          <LinkItem>
-          <Link href="/driver/viewTrips">View Trips</Link>
-        </LinkItem>
-      </LinksWrapper>
+          <Marginer />
+          <Accessibility />
+        </LinksWrapper>
+      )}
     </NavLinksContainer>
   );
 }

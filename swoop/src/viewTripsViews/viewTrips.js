@@ -23,7 +23,9 @@ function ViewTrips() {
       newTripContainer.className = "tripContainer";
       const newContent = document.createTextNode(`Trip Details`);
       newTripContainer.appendChild(newContent);
-      document.getElementById("allTripsContainer").appendChild(newTripContainer);
+      document
+        .getElementById("allTripsContainer")
+        .appendChild(newTripContainer);
     }
   }
 
@@ -40,14 +42,14 @@ function ViewTrips() {
       const originContainer = document.createElement("div");
       originContainer.className = "tripInfoContainer";
       var start = tripsList[i].start;
-      if(start.includes("-")){
+      if (start.includes("-")) {
         console.log("SPACE FOUND IN START");
         start = start.replace("-", " ");
       }
       originContainer.innerHTML = `Trip Origin: ${start}`;
       parent.appendChild(originContainer);
       var end = tripsList[i].end;
-      if(end.includes("-")){
+      if (end.includes("-")) {
         end = end.replace("-", " ");
       }
       const destContainer = document.createElement("div");
@@ -57,13 +59,31 @@ function ViewTrips() {
 
       const distanceContainer = document.createElement("div");
       distanceContainer.className = "tripInfoContainer";
-      distanceContainer.innerHTML = `Total Trip Distance: ${Math.ceil(tripsList[i].distance) + ' miles'}`;
+      distanceContainer.innerHTML = `Total Trip Distance: ${
+        Math.ceil(tripsList[i].distance) + " miles"
+      }`;
       parent.appendChild(distanceContainer);
 
       const co2Container = document.createElement("div");
       co2Container.className = "tripInfoContainer";
-      co2Container.innerHTML = `Carbon Footprint: ${Math.ceil(tripsList[i].CO2) + ' pounds'}`;
+      co2Container.innerHTML = `Carbon Footprint: ${
+        Math.ceil(tripsList[i].CO2) + " pounds"
+      }`;
       parent.appendChild(co2Container);
+
+      const ridersContainer = document.createElement("div");
+      ridersContainer.className = "tripInfoContainer";
+      var usersString = "";
+      for (var j = 0; j < tripsList[i].users.length; j++) {
+        if (j > 0) {
+          usersString += ", " + tripsList[i].users[j].fullName;
+        } else {
+          usersString += tripsList[i].users[j].fullName;
+        }
+      }
+
+      ridersContainer.innerHTML = `Trip Occupants: ${usersString}`;
+      parent.appendChild(ridersContainer);
     });
   }
 
@@ -86,9 +106,7 @@ function ViewTrips() {
         <meta name="description" content="Swoop View Impact Page" />
       </Helmet>
       <DriverNavbar />
-      <div id="allTripsContainer">
-        
-      </div>
+      <div id="allTripsContainer"></div>
     </div>
   );
 }

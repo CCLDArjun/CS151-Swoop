@@ -11,6 +11,7 @@ import Driver from "./driverViews/Driver";
 import ViewProfile from "./viewProfileViews/ViewProfile";
 import ViewImpact from './impactViews/viewImpact';
 import ViewTrips from "./viewTripsViews/viewTrips";
+import RequestRide from "./requestRideViews/requestRide";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -24,7 +25,7 @@ root.render(
         <Route path='viewProfile' element = {<ViewProfile/>}/>
         <Route path='viewImpact' element = {<ViewImpact/>}/>
         <Route path='driver/viewTrips' element = {<ViewTrips/>}/>
-
+        <Route path='rider/requestRide' element = {<RequestRide/>}/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
