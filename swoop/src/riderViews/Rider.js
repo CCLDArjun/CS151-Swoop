@@ -20,6 +20,7 @@ function Rider() {
     try{
       axios.get(`http://localhost:8080/api/v1/user/setGoal?email=${userEmail}&carbonGoal=${riderCarbonGoal}`).then((result) => {
         console.log(result);
+        alert('Your carbon saving goal was successfully set.');
       })
     }catch(err){
       console.log(err);
@@ -55,7 +56,7 @@ function Rider() {
             knobColor="#228b22"
             knobSize={40}
             trackColor="#eeeeee"
-            label="Carbon Goal(kg)"
+            label="Carbon Goal(lb)"
             labelColor="#528265"
             progressColorFrom="#8fbc8f"
             progressColorTo="#2e8b57"
