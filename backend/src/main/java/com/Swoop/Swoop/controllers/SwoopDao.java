@@ -20,4 +20,5 @@ public interface SwoopDao {
 	Ride getRideByID(int currentRideID);
 	void joinRide(User user, int rideID);
 	Map<Integer, Ride> getRides(float startLat, float startLong);
+	List<Ride> getUserRides(String email);
 }

@@ -1,11 +1,13 @@
 package com.Swoop.Swoop.controllers;
 
 import com.Swoop.Swoop.Database;
+import com.Swoop.Swoop.Ride;
 import com.Swoop.Swoop.models.User;
 import com.Swoop.Swoop.services.SwoopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -62,5 +64,9 @@ public class UserController {
 		userService.joinRide(userService.getUserByEmail(email).get(), rideID);
     }
 
-
+	@CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/getUserRides")
+    public List<Ride> getRides(@RequestParam String email){
+		return userService.getUserRides(email);
+    }
 }
