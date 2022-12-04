@@ -2,7 +2,12 @@
 
 **Group #9**
 
-**Group Members:** Oscar Diaz Vega, Arjun Bemarkar, and Shreyass Prem Sankar 
+**Group Members:** Oscar Diaz Vega, Arjun Bemarkar, and Shreyass Prem Sankar
+
+# Proposal Contributions
+- **Oscar**: State/Use Case, Problem Statement,References, Assumptions, Operating Enviorment, High Level Description
+- **Shreyass**: Class Diagram, Functionality, Operations
+- **Arjun**: Sequence Diagram, Functionality
 
 # Project Presentation Contributions
 - **Oscar**: In charge of leading the live project demo, as well as creating the design patterns section of the project's slideshow.
