@@ -6,8 +6,8 @@
 
 # Project Presentation Contributions
 - **Oscar**: In charge of leading the live project demo, as well as creating the design patterns section of the project's slideshow.
-- **Arjun**: In charge of presenting the design patter section, as well as creating the Swoop application timeline section of the project's slideshow.
-- **Shreyass** In charge of presenting the introduction of our project, as well as creating the introduction section of the project's slideshow.
+- **Arjun**: In charge of presenting the design pattern section, as well as helping create the design patterns section of the project's slideshow.
+- **Shreyass**: In charge of creating and presenting the introduction and swoop application timeline of our project, as well as sourcing the theme of the project's slideshow.
 
 # Project Contributions
 - **Oscar**:
