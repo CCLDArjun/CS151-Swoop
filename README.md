@@ -100,6 +100,12 @@ For trip calculations, we used Bing maps API. For frontend we used React.js with
 2. Navigate to [`src/main/java/com/Swoop/Swoop/SwoopApplication.java`](https://github.com/CCLDArjun/CS151-Swoop/blob/main/backend/src/main/java/com/Swoop/Swoop/SwoopApplication.java)
 3. Run the [main method](https://github.com/CCLDArjun/CS151-Swoop/blob/61156b43093ddc324df9289f30f8a7eceb811a75/backend/src/main/java/com/Swoop/Swoop/SwoopApplication.java#L14)
 
+
+# Snapshots!
+
+![Homepage](snapshots/Homepage.png)
+![login](snapshots/LoginPage.png)
+
 # References (optional)
 [Bing Maps APIs](https://learn.microsoft.com/en-us/bingmaps/)
 
