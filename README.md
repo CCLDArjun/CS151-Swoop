@@ -70,7 +70,25 @@ As a driver, all you have to do is submit your departure and destination.
 
 As a rider, you will also submit a departure and destination to request a ride. If the rider's start location is within a 10 mile radius of an existing  planned trip, they have the option to join the ride. Riders can set a carbon saving goal and can see their progress towards their goal with a visualized graph.
 
-Both a driver and a rider can see graphs for the gas cost and carbon footprint of their planned trips. 
+Both a driver and a rider can see graphs for the gas cost and carbon footprint of their planned trips.
+
+# Solution
+
+For trip calculations, we used Bing maps API. For frontend we used React.js with html and css when needed. Spring boot for the backend. Java was used to create an in memory database, and handle requests to update that database.
+
+# Steps to run code
+
+## Frontend
+
+1. Navigate to `CS151-Swoop/swoop/`
+2. `npm install -i`
+3. `npm start`
+
+## Backend
+
+1. Navigate to `CS151-Swoop/backend/`
+2. Run `./mvnw spring-boot:run -X` (`.\mvnw spring-boot:run -X` on windows)
+
 # References (optional)
 [Bing Maps APIs](https://learn.microsoft.com/en-us/bingmaps/)
 
