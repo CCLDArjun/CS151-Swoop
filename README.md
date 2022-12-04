@@ -9,6 +9,11 @@
 - **Shreyass**: Class Diagram, Functionality, Operations
 - **Arjun**: Sequence Diagram, Functionality
 
+# Report Contributions
+- **Oscar**: Updated Class Diagram, Operations, Functionality, 
+- **Shreyass**: Snapshots, Updated Contributions
+- **Arjun**: Updated State Diagram, Solution, Steps to Run
+
 # Project Presentation Contributions
 - **Oscar**: In charge of leading the live project demo, as well as creating the design patterns section of the project's slideshow.
 - **Arjun**: In charge of presenting the design pattern section, as well as helping create the design patterns section of the project's slideshow.
@@ -106,6 +111,6 @@ For trip calculations, we used Bing maps API. For frontend we used React.js with
 ![Homepage](snapshots/Hompage.png)
 ![login](snapshots/LoginPage.png)
 
-# References (optional)
+# References
 [Bing Maps APIs](https://learn.microsoft.com/en-us/bingmaps/)
 
