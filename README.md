@@ -18,6 +18,11 @@
     - The View Trips page
   - The View Profile Page
   - The Home Page
+- **Arjun**
+  - Added ability to add rides to backend
+  - Added ability to add users to rides to the backend
+  - Wrote code to fetch and format data for viewImpact.js
+  - Worked on database to create relationship between Driver, Rider and Ride
 
 # Problem Statement
 
