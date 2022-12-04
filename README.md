@@ -90,7 +90,7 @@ For trip calculations, we used Bing maps API. For frontend we used React.js with
 2. Run `./mvnw spring-boot:run -X` (`.\mvnw spring-boot:run -X` might work on windows)
 
 ## Alternative Backend Steps
-1. Open `CS151-Swoop/backend/` in `IntelliJ`
+1. Open `CS151-Swoop/backend/` in `IntelliJ/Eclipse`
 2. Navigate to [`src/main/java/com/Swoop/Swoop/SwoopApplication.java`](https://github.com/CCLDArjun/CS151-Swoop/blob/main/backend/src/main/java/com/Swoop/Swoop/SwoopApplication.java)
 3. Run the [main method](https://github.com/CCLDArjun/CS151-Swoop/blob/61156b43093ddc324df9289f30f8a7eceb811a75/backend/src/main/java/com/Swoop/Swoop/SwoopApplication.java#L14)
 
