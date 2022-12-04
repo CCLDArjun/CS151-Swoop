@@ -103,7 +103,7 @@ For trip calculations, we used Bing maps API. For frontend we used React.js with
 
 # Snapshots!
 
-![Homepage](snapshots/Homepage.png)
+![Homepage](snapshots/Hompage.png)
 ![login](snapshots/LoginPage.png)
 
 # References (optional)
