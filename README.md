@@ -77,6 +77,7 @@ Both a driver and a rider can see graphs for the gas cost and carbon footprint o
 For trip calculations, we used Bing maps API. For frontend we used React.js with html and css when needed. Spring boot for the backend. Java was used to create an in memory database, and handle requests to update that database.
 
 # Steps to run code
+⚠️ Both the backend and frontend must be running in order for the project to work ⚠️
 
 ## Frontend
 
