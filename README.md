@@ -23,6 +23,14 @@
   - Added ability to add users to rides to the backend
   - Wrote code to fetch and format data for viewImpact.js
   - Worked on database to create relationship between Driver, Rider and Ride
+- **Shreyass**
+  - Implemented navbar
+  - Worked on Rider side of the project
+    - Our mission page
+    - set carbon goals slider/page
+    - request ride page(taken and modified from Driver's side for consistency)
+    - frontend of view impact graphs for CO2, gas cost, and carbon goal progress
+  - Helped source animations for home and ride request page
 
 # Problem Statement
 
